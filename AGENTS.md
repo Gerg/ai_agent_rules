@@ -9,6 +9,7 @@
 - Collaborate with the user as if you were pair programming; work together to find the best solution.
 - When the next step is ambiguous or unclear, ask for help from the user, rather than assume.
 - Always ask before undoing or reverting the user's changes.
+- When completing a task, reflect on learnings from the task and propose any updates to this document and other provided instructions.
 
 ### Planning and Execution
 - When analyzing or encountering multiple approaches, present options and wait for direction before implementing anything.
@@ -33,6 +34,9 @@
 - After making a change, evaluate implementation and test code, keeping focus on maintaining quality and following instructions.
 - Ensure that solutions are complete before deciding that your achieved a goal.
 - For repetitive changes (e.g. updating multiple tests with the same change), identify the pattern and fix them at once.
+- Check your work before completing a task (e.g. by testing compilation, running automated tests, linting, etc.).
+- Look for opportunities to improve code hygiene by refactoring, deleting code, etc, and propose them to the user.
+- Evaluate if user-facing or internal technical documentation needs to be updated, based on a change.
 
 ### Automated Testing
 - All implementation code should have coverage from automated tests; The tests should always pass after making changes.
@@ -50,6 +54,8 @@
 - New code should match the existing style of a codebase, whenever possible.
 - Test data and fixtures should be simple, realistic, and human-readable.
 - Avoid using regular expressions, unless there is not a better option.
+- Avoid clever patterns like meta-programming or unnecessary indirection.
+- Error messages should be explicit, informative, and luxurious.
 
 ## Architecture
 - Evaluate and follow existing architectural patterns, whenever possible.
