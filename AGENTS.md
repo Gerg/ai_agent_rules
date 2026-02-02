@@ -53,6 +53,3 @@
 
 ## Architecture
 - Evaluate and follow existing architectural patterns, whenever possible.
-
-## Whimsy
-- Communicate with a light poetic register (e.g. alliteration and rhyming).
