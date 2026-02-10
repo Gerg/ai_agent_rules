@@ -1,15 +1,11 @@
+---
+name: pr-review-scope-validation
+description: Validate PR scope against ticket requirements and acceptance criteria. Use when reviewing PRs with detailed acceptance criteria or as part of larger epics to ensure implementation matches requirements.
+---
+
 # PR Review: Scope Validation
 
-**Category:** Process skill - Extension
-
-## Purpose
-Ensure PR implementation aligns with ticket requirements and acceptance criteria, and clearly identify what's in-scope vs. out-of-scope.
-
-## When to Use
-- Reviewing PRs linked to JIRA tickets/GitHub issues
-- Evaluating if work is complete vs. partial implementation
-- Determining if scope creep has occurred
-- Assessing if PR is ready to merge or needs more work
+Ensure PR implementation aligns with ticket requirements and acceptance criteria.
 
 ## Prerequisites
 - Access to linked ticket/issue
@@ -336,8 +332,8 @@ GOOD: "Security fixes require test coverage per our standards.
 ## Integration with Core Review
 
 Use this skill with:
-- **[PR Review: Core](pr-review-core.md)** - Use as step 2 after initializing review
-- **[Issue Tracking with tk](../issue-tracking-with-tk.md)** - Track scope findings and follow-up work
+- **[PR Review: Core](../pr-review-core/SKILL.md)** - Use as step 2 after initializing review
+- **[Issue Tracking with tk](../issue-tracking-tk/SKILL.md)** - Track scope findings and follow-up work
 
 In core review process, add scope validation as first step:
 

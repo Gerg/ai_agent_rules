@@ -1,15 +1,11 @@
+---
+name: pr-review-test-validation
+description: Validate suspected bugs empirically through tests before creating tickets. Use when validating suspected bugs or edge cases during review to confirm issues with failing tests before reporting them.
+---
+
 # PR Review: Test-Driven Validation
 
-**Category:** Process skill - Extension
-
-## Purpose
 Validate suspected bugs and edge cases empirically through tests before creating tickets.
-
-## When to Use
-- Suspect a validation gap
-- Identify potential edge case
-- Question whether framework handles something
-- Before creating any bug ticket
 
 ## Prerequisites
 - Access to test suite and test environment

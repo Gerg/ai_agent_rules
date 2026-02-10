@@ -4,6 +4,12 @@ A modular collection of composable skills for AI agents, covering story writing,
 
 > **Note:** These skills were created with AI assistance and are provided as starting points. Review and adapt them to your specific context, team conventions, and project requirements. Examples use generic patterns and may need customization for your codebase.
 
+## Standards and Licensing
+
+These skills follow the [Agent Skills](https://agentskills.io/) standard, an open format originally developed by Anthropic and implemented by Cursor, Claude, and other tools. Each skill is a directory containing a `SKILL.md` file with YAML frontmatter.
+
+**License**: Skills without their own LICENSE file are covered by the repository's MIT license (see top-level LICENSE file). The [Skill Writing Skill](skill-writing/SKILL.md) incorporates content from [Anthropic's skill-creator](https://github.com/anthropics/skills/blob/main/skills/skill-creator/SKILL.md) and is licensed under Apache-2.0 (see `skill-writing/LICENSE`).
+
 ## Overview
 
 These skills are designed to be **composable** - use them together or separately depending on your context. Each skill builds on or complements others to provide comprehensive guidance.
@@ -19,7 +25,7 @@ These skills are designed to be **composable** - use them together or separately
 
 ## Story Writing Skills
 
-### [Generic Story Writing](story-writing/generic-story-writing.md)
+### [Generic Story Writing](story-writing-generic/SKILL.md)
 **Foundation skill** - Universal principles for writing user stories
 
 - Core principles and best practices
@@ -33,7 +39,7 @@ These skills are designed to be **composable** - use them together or separately
 
 ---
 
-### [Jira Story Writing](story-writing/jira-story-writing.md)
+### [Jira Story Writing](story-writing-jira/SKILL.md)
 **Tool skill** - Jira-specific markup and conventions
 
 - Complete Jira markup reference
@@ -50,7 +56,7 @@ These skills are designed to be **composable** - use them together or separately
 
 ## Cloud Foundry Skills
 
-### [Cloud Foundry API Story Writing](story-writing/cloud-foundry/api-story-writing.md)
+### [Cloud Foundry API Story Writing](story-writing-cloud-foundry-api/SKILL.md)
 **Domain skill** - Comprehensive CAPI story writing
 
 - Story structure for API endpoints
@@ -70,7 +76,7 @@ These skills are designed to be **composable** - use them together or separately
 
 ---
 
-### [Cloud Foundry CLI Story Writing](story-writing/cloud-foundry/cli-story-writing.md)
+### [Cloud Foundry CLI Story Writing](story-writing-cloud-foundry-cli/SKILL.md)
 **Domain skill** - Comprehensive CF CLI story writing
 
 - CLI story principles
@@ -92,7 +98,7 @@ These skills are designed to be **composable** - use them together or separately
 
 ## PR Review Skills
 
-### [PR Review: Core](pr-review/pr-review-core.md)
+### [PR Review: Core](pr-review-core/SKILL.md)
 **Foundation skill** - Systematic code review process
 
 - Initialize review tracking
@@ -107,7 +113,7 @@ These skills are designed to be **composable** - use them together or separately
 
 ---
 
-### [PR Review: Scope Validation](pr-review/pr-review-scope-validation.md)
+### [PR Review: Scope Validation](pr-review-scope-validation/SKILL.md)
 **Add-on skill** - Validate PR scope against ticket requirements
 
 - Extract ticket requirements
@@ -123,7 +129,7 @@ These skills are designed to be **composable** - use them together or separately
 
 ---
 
-### [PR Review: Consistency Check](pr-review/pr-review-consistency-check.md)
+### [PR Review: Consistency Check](pr-review-consistency-check/SKILL.md)
 **Add-on skill** - Verify code follows existing patterns
 
 - Identify component types
@@ -141,7 +147,7 @@ These skills are designed to be **composable** - use them together or separately
 
 ---
 
-### [PR Review: Test-Driven Validation](pr-review/pr-review-test-validation.md)
+### [PR Review: Test-Driven Validation](pr-review-test-validation/SKILL.md)
 **Add-on skill** - Validate suspected bugs empirically through tests
 
 - Identify suspected issues
@@ -160,7 +166,7 @@ These skills are designed to be **composable** - use them together or separately
 
 ## Issue Tracking Skills
 
-### [Issue Tracking with tk](issue-tracking-with-tk.md)
+### [Issue Tracking with tk](issue-tracking-tk/SKILL.md)
 **Tool skill** - Track issues and tasks using the tk utility
 
 - Initialize tracking
@@ -178,17 +184,22 @@ These skills are designed to be **composable** - use them together or separately
 
 ## Meta Skills
 
-### [Skill Writing Skill](skill-writing-skill.md)
+### [Skill Writing Skill](skill-writing/SKILL.md)
 **Meta skill** - Create effective, composable skill documents
 
-- Skill design principles
+- Skill design principles (including token efficiency and degrees of freedom)
+- YAML frontmatter and file structure
 - Structure and content guidelines
 - Composability patterns
+- Progressive disclosure for large skills
 - Quality checklists
 - Skill types and organization
+- Agent collaboration guidance
 - Maintenance guidelines
 
 **Use when**: Creating new skills or updating existing ones
+
+**License**: Apache-2.0 (incorporates content from Anthropic's skill-creator)
 
 ---
 
@@ -198,48 +209,48 @@ These skills are designed to be **composable** - use them together or separately
 
 ### For a Cloud Foundry API Story in Jira
 Combine:
-1. [Generic Story Writing](story-writing/generic-story-writing.md) - Core structure
-2. [Jira Story Writing](story-writing/jira-story-writing.md) - Markup and formatting
-3. [Cloud Foundry API Story Writing](story-writing/cloud-foundry/api-story-writing.md) - Complete CAPI guidance
+1. [Generic Story Writing](story-writing-generic/SKILL.md) - Core structure
+2. [Jira Story Writing](story-writing-jira/SKILL.md) - Markup and formatting
+3. [Cloud Foundry API Story Writing](story-writing-cloud-foundry-api/SKILL.md) - Complete CAPI guidance
 
 ### For a Cloud Foundry CLI Story in Jira
 Combine:
-1. [Generic Story Writing](story-writing/generic-story-writing.md) - Core structure
-2. [Jira Story Writing](story-writing/jira-story-writing.md) - Markup and formatting
-3. [Cloud Foundry CLI Story Writing](story-writing/cloud-foundry/cli-story-writing.md) - Complete CF CLI guidance
+1. [Generic Story Writing](story-writing-generic/SKILL.md) - Core structure
+2. [Jira Story Writing](story-writing-jira/SKILL.md) - Markup and formatting
+3. [Cloud Foundry CLI Story Writing](story-writing-cloud-foundry-cli/SKILL.md) - Complete CF CLI guidance
 
 ### For a Feature Touching Both CAPI and CF CLI
 Combine:
-1. [Generic Story Writing](story-writing/generic-story-writing.md) - Core structure
-2. [Jira Story Writing](story-writing/jira-story-writing.md) - Markup and formatting
-3. [Cloud Foundry API Story Writing](story-writing/cloud-foundry/api-story-writing.md) - For API acceptance criteria
-4. [Cloud Foundry CLI Story Writing](story-writing/cloud-foundry/cli-story-writing.md) - For CLI acceptance criteria
+1. [Generic Story Writing](story-writing-generic/SKILL.md) - Core structure
+2. [Jira Story Writing](story-writing-jira/SKILL.md) - Markup and formatting
+3. [Cloud Foundry API Story Writing](story-writing-cloud-foundry-api/SKILL.md) - For API acceptance criteria
+4. [Cloud Foundry CLI Story Writing](story-writing-cloud-foundry-cli/SKILL.md) - For CLI acceptance criteria
 
 ### For a Simple Task in Any Tracker
 Use:
-1. [Generic Story Writing](story-writing/generic-story-writing.md) - Core structure
+1. [Generic Story Writing](story-writing-generic/SKILL.md) - Core structure
 2. (Adapt formatting for your specific tracker)
 
 ### PR Review
 
 ### For a Standard PR Review
 Combine:
-1. [PR Review: Core](pr-review/pr-review-core.md) - Review process
-2. [Issue Tracking with tk](issue-tracking-with-tk.md) - Track findings
-3. [PR Review: Test-Driven Validation](pr-review/pr-review-test-validation.md) - Validate bugs
+1. [PR Review: Core](pr-review-core/SKILL.md) - Review process
+2. [Issue Tracking with tk](issue-tracking-tk/SKILL.md) - Track findings
+3. [PR Review: Test-Driven Validation](pr-review-test-validation/SKILL.md) - Validate bugs
 
 ### For a PR with Detailed Acceptance Criteria
 Combine:
-1. [PR Review: Core](pr-review/pr-review-core.md) - Review process
-2. [PR Review: Scope Validation](pr-review/pr-review-scope-validation.md) - Validate scope
-3. [Issue Tracking with tk](issue-tracking-with-tk.md) - Track findings
+1. [PR Review: Core](pr-review-core/SKILL.md) - Review process
+2. [PR Review: Scope Validation](pr-review-scope-validation/SKILL.md) - Validate scope
+3. [Issue Tracking with tk](issue-tracking-tk/SKILL.md) - Track findings
 
 ### For a PR Adding New Features
 Combine:
-1. [PR Review: Core](pr-review/pr-review-core.md) - Review process
-2. [PR Review: Scope Validation](pr-review/pr-review-scope-validation.md) - Check scope
-3. [PR Review: Consistency Check](pr-review/pr-review-consistency-check.md) - Check patterns
-4. [Issue Tracking with tk](issue-tracking-with-tk.md) - Track findings
+1. [PR Review: Core](pr-review-core/SKILL.md) - Review process
+2. [PR Review: Scope Validation](pr-review-scope-validation/SKILL.md) - Check scope
+3. [PR Review: Consistency Check](pr-review-consistency-check/SKILL.md) - Check patterns
+4. [Issue Tracking with tk](issue-tracking-tk/SKILL.md) - Track findings
 
 ---
 
@@ -270,21 +281,23 @@ Combine:
 
 ### System-Specific Skills
 Create skills for specific products or platforms:
-- `cloud-foundry-story-writing.md` - CF-specific patterns
-- `kubernetes-story-writing.md` - K8s-specific patterns
-- `aws-story-writing.md` - AWS-specific patterns
+- `story-writing-cloud-foundry/` - CF-specific patterns
+- `story-writing-kubernetes/` - K8s-specific patterns
+- `story-writing-aws/` - AWS-specific patterns
 
 ### Domain-Specific Skills
 Create skills for other domains:
-- `ui-story-writing.md` - Web/mobile UI patterns
-- `database-story-writing.md` - Database schema/migration patterns
-- `infrastructure-story-writing.md` - IaC and deployment patterns
+- `story-writing-ui/` - Web/mobile UI patterns
+- `story-writing-database/` - Database schema/migration patterns
+- `story-writing-infrastructure/` - IaC and deployment patterns
 
 ### Issue Tracker Skills
 Create skills for other trackers:
-- `github-story-writing.md` - GitHub Issues/Projects
-- `asana-story-writing.md` - Asana tasks
-- `linear-story-writing.md` - Linear issues
+- `story-writing-github/` - GitHub Issues/Projects
+- `story-writing-asana/` - Asana tasks
+- `story-writing-linear/` - Linear issues
+
+**Note**: Each skill should be a directory containing `SKILL.md` with YAML frontmatter, following the [Agent Skills standard](https://agentskills.io/).
 
 ---
 
@@ -305,38 +318,38 @@ Create skills for other trackers:
 ### Story Writing
 
 **I'm writing a Cloud Foundry API story in Jira**
-1. Read [Generic Story Writing](story-writing/generic-story-writing.md) for structure
-2. Read [Jira Story Writing](story-writing/jira-story-writing.md) for markup
-3. Read [Cloud Foundry API Story Writing](story-writing/cloud-foundry/api-story-writing.md) for complete CAPI guidance
+1. Read [Generic Story Writing](story-writing-generic/SKILL.md) for structure
+2. Read [Jira Story Writing](story-writing-jira/SKILL.md) for markup
+3. Read [Cloud Foundry API Story Writing](story-writing-cloud-foundry-api/SKILL.md) for complete CAPI guidance
 
 **I'm writing a Cloud Foundry CLI story in Jira**
-1. Read [Generic Story Writing](story-writing/generic-story-writing.md) for structure
-2. Read [Jira Story Writing](story-writing/jira-story-writing.md) for markup
-3. Read [Cloud Foundry CLI Story Writing](story-writing/cloud-foundry/cli-story-writing.md) for complete CF CLI guidance
+1. Read [Generic Story Writing](story-writing-generic/SKILL.md) for structure
+2. Read [Jira Story Writing](story-writing-jira/SKILL.md) for markup
+3. Read [Cloud Foundry CLI Story Writing](story-writing-cloud-foundry-cli/SKILL.md) for complete CF CLI guidance
 
 **I'm new to story writing**
-1. Start with [Generic Story Writing](story-writing/generic-story-writing.md)
-2. Learn your issue tracker's formatting (e.g., [Jira Story Writing](story-writing/jira-story-writing.md))
+1. Start with [Generic Story Writing](story-writing-generic/SKILL.md)
+2. Learn your issue tracker's formatting (e.g., [Jira Story Writing](story-writing-jira/SKILL.md))
 3. Add system-specific skills as needed (e.g., Cloud Foundry)
 
 ### PR Review
 
 **I'm reviewing a pull request**
-1. Read [PR Review: Core](pr-review/pr-review-core.md) for the process
-2. Use [Issue Tracking with tk](issue-tracking-with-tk.md) to track findings
-3. Add [PR Review: Scope Validation](pr-review/pr-review-scope-validation.md) if PR has detailed acceptance criteria
-4. Add [PR Review: Consistency Check](pr-review/pr-review-consistency-check.md) for new features
-5. Use [PR Review: Test-Driven Validation](pr-review/pr-review-test-validation.md) to validate bugs
+1. Read [PR Review: Core](pr-review-core/SKILL.md) for the process
+2. Use [Issue Tracking with tk](issue-tracking-tk/SKILL.md) to track findings
+3. Add [PR Review: Scope Validation](pr-review-scope-validation/SKILL.md) if PR has detailed acceptance criteria
+4. Add [PR Review: Consistency Check](pr-review-consistency-check/SKILL.md) for new features
+5. Use [PR Review: Test-Driven Validation](pr-review-test-validation/SKILL.md) to validate bugs
 
 **I'm new to code review**
-1. Start with [PR Review: Core](pr-review/pr-review-core.md)
-2. Learn [Issue Tracking with tk](issue-tracking-with-tk.md) for tracking
+1. Start with [PR Review: Core](pr-review-core/SKILL.md)
+2. Learn [Issue Tracking with tk](issue-tracking-tk/SKILL.md) for tracking
 3. Add specialized skills as needed
 
 ### Creating Skills
 
 **I'm creating a new skill**
-1. Read [Skill Writing Skill](skill-writing-skill.md)
+1. Read [Skill Writing Skill](skill-writing/SKILL.md)
 2. Follow the structure and principles
 3. Update this README when done
 

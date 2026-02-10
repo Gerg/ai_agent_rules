@@ -34,11 +34,45 @@ These rules primarily originate from the following:
 
 ## Skills
 
-The `skills/` directory contains reusable knowledge documents for specific tasks.
+The `skills/` directory contains reusable knowledge documents for specific tasks following the [Agent Skills](https://agentskills.io/) standard (implemented by Cursor and other tools).
 
 See [skills/README.md](skills/README.md) for details.
 
+### Using Skills
+
+Skills are automatically discovered by agents from locations, including:
+- `.cursor/skills/` - Project-level
+- `.claude/skills/` - Project-level
+- `.codex/skills/` - Project-level
+- `~/.cursor/skills/` - User-level global
+- `~/.claude/skills/` - User-level global
+- `~/.codex/skills/` - User-level global
+
+**To activate skills:**
+
+⚠️ At time of writing, there is a Cursor
+[bug](https://forum.cursor.com/t/cursor-doesnt-follow-symlinks-to-discover-skills/149693/14)
+that prevents it from following symlinks for skills.
+
+```bash
+# Option 1: Symlink entire skills directory (recommended for development)
+ln -s /path/to/ai_agent_rules/skills ~/.cursor/skills
+
+# Option 2: Symlink individual skills
+ln -s /path/to/ai_agent_rules/skills/generic-story-writing ~/.cursor/skills/generic-story-writing
+
+# Option 3: Copy skills to discovery location
+cp -r /path/to/ai_agent_rules/skills/* ~/.cursor/skills/
+```
+
+If you're pulling skills from multiple sources, you can also use a tool like
+[stow](https://www.gnu.org/software/stow/).
+
+**Note:** This repository uses `skills/` as a development/documentation
+location. Skills must be in one of the discovery locations above to be used by
+agents.
+
 ### Provenance 
 
-These skils are primarily AI-generated, distilled post facto from agent
-coding sessions where the skill was performed.
+These skills are primarily AI-generated, distilled post facto from agent coding
+sessions where the skill was performed.

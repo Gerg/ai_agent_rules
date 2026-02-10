@@ -1,17 +1,14 @@
+---
+name: pr-review-core
+description: Systematic code review process for pull requests. Use when conducting any code review or PR review to ensure comprehensive coverage including scope understanding, categorization, duplication checking, and test-driven validation.
+---
+
 # PR Review: Core
 
-**Category:** Process skill - Foundation
-
-## Purpose
 Conduct thorough, systematic code reviews using test-driven validation and issue tracking.
 
-## When to Use
-- Reviewing pull requests or commits
-- Conducting code audits
-- Evaluating implementation correctness
-
 ## Prerequisites
-- Issue tracking system available (see: ../issue-tracking-with-tk.md for tk-specific commands)
+- Issue tracking system available (see: ../issue-tracking-tk/SKILL.md for tk-specific commands)
 - Test environment accessible
 - Access to codebase and related documentation
 
@@ -31,7 +28,7 @@ Create a main review tracking item with:
 - **Tags:** review, security, authentication
 - **External Reference:** Link to PR or ticket
 
-See [Issue Tracking with tk](../issue-tracking-with-tk.md) for tk-specific commands, or use your project's issue tracking system.
+See [Issue Tracking with tk](../issue-tracking-tk/SKILL.md) for tk-specific commands, or use your project's issue tracking system.
 
 ### 2. Understand Scope
 - Read all changed files completely
@@ -39,7 +36,7 @@ See [Issue Tracking with tk](../issue-tracking-with-tk.md) for tk-specific comma
 - Review associated tickets/requirements
 - Note any external dependencies or patterns
 
-For detailed scope validation against acceptance criteria, see [PR Review: Scope Validation](pr-review-scope-validation.md).
+For detailed scope validation against acceptance criteria, see [PR Review: Scope Validation](../pr-review-scope-validation/SKILL.md).
 
 ### 3. Create Review Categories
 Create separate tracking items for each concern area:
@@ -61,7 +58,7 @@ Common categories:
 - Documentation
 - Security/validation
 
-See [Issue Tracking with tk](../issue-tracking-with-tk.md) for implementation details on creating and linking tickets.
+See [Issue Tracking with tk](../issue-tracking-tk/SKILL.md) for implementation details on creating and linking tickets.
 
 ### 3.5. Check for Duplication
 
@@ -100,7 +97,7 @@ Before accepting new code, verify it doesn't duplicate existing functionality:
 3. If test PASSES → Not a bug (framework handles it)
 4. If test FAILS → Real bug, create ticket with test
 
-See [PR Review: Test-Driven Validation](pr-review-test-validation.md) for detailed process.
+See [PR Review: Test-Driven Validation](../pr-review-test-validation/SKILL.md) for detailed process.
 
 **For architectural concerns:**
 1. Search codebase for similar patterns
@@ -237,7 +234,7 @@ Provide user with:
 
 ## Tool Integration
 This skill works with any issue tracking system. Examples:
-- **tk utility**: See [issue-tracking-with-tk.md](../issue-tracking-with-tk.md) for tk-specific commands
+- **tk utility**: See [issue-tracking-with-tk](../issue-tracking-tk/SKILL.md) for tk-specific commands
 - **GitHub Issues**: Create issues via gh CLI or API
 - **JIRA**: Create tickets via API or CLI tools
 - **Linear**: Create issues via API

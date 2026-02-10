@@ -1,16 +1,11 @@
+---
+name: issue-tracking-tk
+description: Track issues, findings, and tasks during code reviews or development work using the tk utility. Use when conducting code reviews, managing multiple parallel tasks, tracking findings that need action, coordinating work with other agents, or generating work summaries.
+---
+
 # Issue Tracking with tk
 
-**Category:** Tool skill
-
-## Purpose
 Track issues, findings, and tasks during code reviews or development work using the `tk` utility.
-
-## When to Use
-- Conducting code reviews
-- Managing multiple parallel tasks
-- Tracking findings that need action
-- Coordinating work with other agents
-- Generating work summaries
 
 ## Prerequisites
 - `tk` utility available in PATH

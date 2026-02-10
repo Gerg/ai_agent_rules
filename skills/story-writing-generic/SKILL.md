@@ -1,6 +1,10 @@
+---
+name: story-writing-generic
+description: Universal guide for writing well-structured user stories, regardless of issue tracker or domain. Use when writing any user story to ensure proper structure, Given/When/Then format, and clear acceptance criteria.
+---
+
 # Generic Story Writing Skill
 
-**Category:** Foundation skill
 
 A universal guide for writing well-structured user stories, regardless of issue tracker or domain.
 
