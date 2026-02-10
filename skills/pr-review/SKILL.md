@@ -1,11 +1,20 @@
 ---
-name: pr-review-core
-description: Systematic code review process for pull requests. Use when conducting any code review or PR review to ensure comprehensive coverage including scope understanding, categorization, duplication checking, and test-driven validation.
+name: pr-review
+description: Systematic code review process for pull requests. Use when conducting code reviews to ensure comprehensive coverage including scope understanding, categorization, duplication checking, test-driven validation, scope validation, and consistency checking.
 ---
 
-# PR Review: Core
+# PR Review
 
 Conduct thorough, systematic code reviews using test-driven validation and issue tracking.
+
+## Using This Skill
+
+This skill provides the core PR review process. For specialized review techniques, see:
+
+**Validation techniques:**
+- **Scope Validation**: See [references/scope-validation.md](references/scope-validation.md) for validating PRs against acceptance criteria
+- **Consistency Checking**: See [references/consistency-patterns.md](references/consistency-patterns.md) for verifying code follows existing patterns
+- **Test-Driven Validation**: See [references/test-validation.md](references/test-validation.md) for empirically validating suspected bugs
 
 ## Prerequisites
 - Issue tracking system available (see: ../issue-tracking-tk/SKILL.md for tk-specific commands)
@@ -36,7 +45,7 @@ See [Issue Tracking with tk](../issue-tracking-tk/SKILL.md) for tk-specific comm
 - Review associated tickets/requirements
 - Note any external dependencies or patterns
 
-For detailed scope validation against acceptance criteria, see [PR Review: Scope Validation](../pr-review-scope-validation/SKILL.md).
+For detailed scope validation against acceptance criteria, see [references/scope-validation.md](references/scope-validation.md).
 
 ### 3. Create Review Categories
 Create separate tracking items for each concern area:
@@ -97,7 +106,7 @@ Before accepting new code, verify it doesn't duplicate existing functionality:
 3. If test PASSES → Not a bug (framework handles it)
 4. If test FAILS → Real bug, create ticket with test
 
-See [PR Review: Test-Driven Validation](../pr-review-test-validation/SKILL.md) for detailed process.
+See [references/test-validation.md](references/test-validation.md) for detailed test-driven validation process.
 
 **For architectural concerns:**
 1. Search codebase for similar patterns
@@ -105,6 +114,8 @@ See [PR Review: Test-Driven Validation](../pr-review-test-validation/SKILL.md) f
 3. Evaluate tradeoffs (performance, maintainability, clarity)
 4. Propose alternatives with concrete examples
 5. Ask clarifying questions rather than making assumptions
+
+See [references/consistency-patterns.md](references/consistency-patterns.md) for detailed consistency checking process.
 
 **For duplication concerns:**
 1. Identify what data both implementations fetch/compute
@@ -234,7 +245,7 @@ Provide user with:
 
 ## Tool Integration
 This skill works with any issue tracking system. Examples:
-- **tk utility**: See [issue-tracking-with-tk](../issue-tracking-tk/SKILL.md) for tk-specific commands
+- **tk utility**: See [issue-tracking-tk](../issue-tracking-tk/SKILL.md) for tk-specific commands
 - **GitHub Issues**: Create issues via gh CLI or API
 - **JIRA**: Create tickets via API or CLI tools
 - **Linear**: Create issues via API

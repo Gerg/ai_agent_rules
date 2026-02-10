@@ -1,6 +1,6 @@
 # AI Agent Skills
 
-A modular collection of composable skills for AI agents, covering story writing, code review, issue tracking, and skill development.
+A collection of skills for AI agents using progressive disclosure, covering story writing, code review, issue tracking, and skill development.
 
 > **Note:** These skills were created with AI assistance and are provided as starting points. Review and adapt them to your specific context, team conventions, and project requirements. Examples use generic patterns and may need customization for your codebase.
 
@@ -10,356 +10,209 @@ These skills follow the [Agent Skills](https://agentskills.io/) standard, an ope
 
 **License**: Skills without their own LICENSE file are covered by the repository's MIT license (see top-level LICENSE file). The [Skill Writing Skill](skill-writing/SKILL.md) incorporates content from [Anthropic's skill-creator](https://github.com/anthropics/skills/blob/main/skills/skill-creator/SKILL.md) and is licensed under Apache-2.0 (see `skill-writing/LICENSE`).
 
-## Overview
+## Available Skills
 
-These skills are designed to be **composable** - use them together or separately depending on your context. Each skill builds on or complements others to provide comprehensive guidance.
+### [Story Writing](story-writing/SKILL.md)
+Write well-structured user stories with proper acceptance criteria.
 
-## Skill Categories
-
-- **Story Writing Skills** - Writing user stories for Cloud Foundry
-- **PR Review Skills** - Conducting systematic code reviews
-- **Issue Tracking Skills** - Managing work with issue tracking tools
-- **Meta Skills** - Creating and maintaining skills themselves
-
----
-
-## Story Writing Skills
-
-### [Generic Story Writing](story-writing-generic/SKILL.md)
-**Foundation skill** - Universal principles for writing user stories
-
-- Core principles and best practices
-- Story structure and acceptance criteria
+**Core content:**
+- Universal story writing principles
 - Given/When/Then format
-- Story splitting strategies
-- Common mistakes to avoid
+- Story structure and splitting
+- Common story types (Create, Update, Delete, List)
 - Quality checklist
 
-**Use when**: Writing any user story, regardless of domain or tracker
+**References (loaded as needed):**
+- `references/jira-markup.md` - Jira-specific formatting
+- `references/cloud-foundry-api.md` - Cloud Foundry API patterns
+- `references/cloud-foundry-cli.md` - Cloud Foundry CLI patterns
+
+**Use when**: Writing user stories in any tracker or domain
 
 ---
 
-### [Jira Story Writing](story-writing-jira/SKILL.md)
-**Tool skill** - Jira-specific markup and conventions
+### [PR Review](pr-review/SKILL.md)
+Conduct systematic, thorough code reviews with test-driven validation.
 
-- Complete Jira markup reference
-- Headers, formatting, code blocks, tables
-- Jira-specific story structure
-- Ticket references and linking
-- Panels, quotes, and special formatting
+**Core content:**
+- Systematic review process
+- Issue tracking and categorization
+- Duplication checking
+- Test-driven validation overview
+- Summary generation
 
-**Use when**: Writing stories in Jira
+**References (loaded as needed):**
+- `references/scope-validation.md` - Validate PR against acceptance criteria
+- `references/consistency-patterns.md` - Check code follows existing patterns
+- `references/test-validation.md` - Empirically validate bugs with tests
 
-**Combines with**: Generic Story Writing + Cloud Foundry skills
-
----
-
-## Cloud Foundry Skills
-
-### [Cloud Foundry API Story Writing](story-writing-cloud-foundry-api/SKILL.md)
-**Domain skill** - Comprehensive CAPI story writing
-
-- Story structure for API endpoints
-- CRUD patterns (Create, Read, Update, Delete, List)
-- CAPI error format (CF-* error titles)
-- CAPI pagination structure
-- Cloud Foundry roles and permissions
-- Request/response patterns
-- Query parameters and filtering
-- Async operations (job pattern)
-- Metadata stories
-- References to CAPI v3 style guide (authoritative source)
-
-**Use when**: Writing stories about Cloud Foundry API (CAPI) endpoints
-
-**Combines with**: Generic Story Writing + Jira Story Writing
+**Use when**: Reviewing pull requests or conducting code reviews
 
 ---
-
-### [Cloud Foundry CLI Story Writing](story-writing-cloud-foundry-cli/SKILL.md)
-**Domain skill** - Comprehensive CF CLI story writing
-
-- CLI story principles
-- Command execution patterns
-- CF CLI command structure
-- Cloud Foundry roles (SpaceDeveloper, OrgManager, SpaceSupporter, etc.)
-- CF CLI output formats
-- Help text structure
-- Error handling patterns
-- Confirmation prompts
-- Exit codes
-- CF CLI style guide conventions
-
-**Use when**: Writing stories about Cloud Foundry CLI (cf CLI) commands
-
-**Combines with**: Generic Story Writing + Jira Story Writing
-
----
-
-## PR Review Skills
-
-### [PR Review: Core](pr-review-core/SKILL.md)
-**Foundation skill** - Systematic code review process
-
-- Initialize review tracking
-- Understand scope and requirements
-- Create review categories
-- Check for duplication
-- Validate findings with tests
-- Document findings systematically
-- Generate review summaries
-
-**Use when**: Conducting any code review or PR review
-
----
-
-### [PR Review: Scope Validation](pr-review-scope-validation/SKILL.md)
-**Add-on skill** - Validate PR scope against ticket requirements
-
-- Extract ticket requirements
-- Map implementation to acceptance criteria
-- Identify scope boundaries
-- Categorize completeness (Complete/Partial/Incomplete/Mismatch)
-- Document scope assessment
-- Clarify with stakeholders
-
-**Use when**: Reviewing PRs with detailed acceptance criteria or as part of larger epics
-
-**Combines with**: PR Review: Core
-
----
-
-### [PR Review: Consistency Check](pr-review-consistency-check/SKILL.md)
-**Add-on skill** - Verify code follows existing patterns
-
-- Identify component types
-- Find similar existing components
-- Compare patterns and conventions
-- Document deviations
-- Check architectural alignment
-- Generate consistency report
-
-**Use when**: Reviewing new features or checking architectural alignment
-
-**Combines with**: PR Review: Core
-
-**Note**: Includes polyglot examples (Ruby, Go, Python, JavaScript)
-
----
-
-### [PR Review: Test-Driven Validation](pr-review-test-validation/SKILL.md)
-**Add-on skill** - Validate suspected bugs empirically through tests
-
-- Identify suspected issues
-- Write failing tests
-- Run tests to validate
-- Interpret results (pass/fail/inconclusive)
-- Create tickets only for confirmed bugs
-
-**Use when**: Validating suspected bugs or edge cases during review
-
-**Combines with**: PR Review: Core
-
-**Note**: Includes polyglot examples (Ruby/RSpec, Go, Python/pytest, JavaScript/Jest)
-
----
-
-## Issue Tracking Skills
 
 ### [Issue Tracking with tk](issue-tracking-tk/SKILL.md)
-**Tool skill** - Track issues and tasks using the tk utility
+Track issues and coordinate work using the tk utility.
 
-- Initialize tracking
-- Create and manage tickets
-- Add context and notes
-- Track progress
-- Generate summaries
+**Core content:**
+- Basic tk operations
+- Ticket decomposition patterns
+- Parent/child relationships
+- Dependencies and blocking
 - Multi-agent coordination
+- Query and reporting
 
 **Use when**: Managing code reviews, development tasks, or coordinating with other agents
 
-**Combines with**: All PR Review skills
-
 ---
 
-## Meta Skills
+### [Skill Writing](skill-writing/SKILL.md)
+Create effective skill documents using progressive disclosure.
 
-### [Skill Writing Skill](skill-writing/SKILL.md)
-**Meta skill** - Create effective, composable skill documents
-
-- Skill design principles (including token efficiency and degrees of freedom)
-- YAML frontmatter and file structure
-- Structure and content guidelines
-- Composability patterns
-- Progressive disclosure for large skills
+**Core content:**
+- Skill design principles (conciseness, degrees of freedom)
+- When to create separate skills vs use references
+- YAML frontmatter and structure
 - Quality checklists
-- Skill types and organization
-- Agent collaboration guidance
-- Maintenance guidelines
+- Naming conventions
 
-**Use when**: Creating new skills or updating existing ones
+**References (loaded as needed):**
+- `references/TEMPLATE.md` - Copy-paste template
+- `references/SKILL-TYPES.md` - Core skills, extensions, references
+- `references/CONTENT-PATTERNS.md` - Workflows, feedback loops, templates
+- `references/ANTI-PATTERNS.md` - Common mistakes
+- `references/CREATION-PROCESS.md` - Step-by-step creation guide
+- `references/AGENT-COLLABORATION.md` - Agent-user collaboration patterns
 
-**License**: Apache-2.0 (incorporates content from Anthropic's skill-creator)
+**Use when**: Creating or updating skills
 
----
-
-## How to Use These Skills
-
-### Story Writing
-
-### For a Cloud Foundry API Story in Jira
-Combine:
-1. [Generic Story Writing](story-writing-generic/SKILL.md) - Core structure
-2. [Jira Story Writing](story-writing-jira/SKILL.md) - Markup and formatting
-3. [Cloud Foundry API Story Writing](story-writing-cloud-foundry-api/SKILL.md) - Complete CAPI guidance
-
-### For a Cloud Foundry CLI Story in Jira
-Combine:
-1. [Generic Story Writing](story-writing-generic/SKILL.md) - Core structure
-2. [Jira Story Writing](story-writing-jira/SKILL.md) - Markup and formatting
-3. [Cloud Foundry CLI Story Writing](story-writing-cloud-foundry-cli/SKILL.md) - Complete CF CLI guidance
-
-### For a Feature Touching Both CAPI and CF CLI
-Combine:
-1. [Generic Story Writing](story-writing-generic/SKILL.md) - Core structure
-2. [Jira Story Writing](story-writing-jira/SKILL.md) - Markup and formatting
-3. [Cloud Foundry API Story Writing](story-writing-cloud-foundry-api/SKILL.md) - For API acceptance criteria
-4. [Cloud Foundry CLI Story Writing](story-writing-cloud-foundry-cli/SKILL.md) - For CLI acceptance criteria
-
-### For a Simple Task in Any Tracker
-Use:
-1. [Generic Story Writing](story-writing-generic/SKILL.md) - Core structure
-2. (Adapt formatting for your specific tracker)
-
-### PR Review
-
-### For a Standard PR Review
-Combine:
-1. [PR Review: Core](pr-review-core/SKILL.md) - Review process
-2. [Issue Tracking with tk](issue-tracking-tk/SKILL.md) - Track findings
-3. [PR Review: Test-Driven Validation](pr-review-test-validation/SKILL.md) - Validate bugs
-
-### For a PR with Detailed Acceptance Criteria
-Combine:
-1. [PR Review: Core](pr-review-core/SKILL.md) - Review process
-2. [PR Review: Scope Validation](pr-review-scope-validation/SKILL.md) - Validate scope
-3. [Issue Tracking with tk](issue-tracking-tk/SKILL.md) - Track findings
-
-### For a PR Adding New Features
-Combine:
-1. [PR Review: Core](pr-review-core/SKILL.md) - Review process
-2. [PR Review: Scope Validation](pr-review-scope-validation/SKILL.md) - Check scope
-3. [PR Review: Consistency Check](pr-review-consistency-check/SKILL.md) - Check patterns
-4. [Issue Tracking with tk](issue-tracking-tk/SKILL.md) - Track findings
+**License**: Apache-2.0 (incorporates Anthropic content)
 
 ---
 
-## Skill Composition Matrix
+## How Skills Work
 
-### Story Writing (Cloud Foundry)
+### Progressive Disclosure
 
-| Context | Generic | Jira | CF API | CF CLI |
-|---------|---------|------|--------|--------|
-| Jira CAPI Story | ✅ | ✅ | ✅ | ❌ |
-| Jira CF CLI Story | ✅ | ✅ | ❌ | ✅ |
-| Jira CAPI+CLI Story | ✅ | ✅ | ✅ | ✅ |
-| Simple Story | ✅ | ✅ | ❌ | ❌ |
+Skills use a three-level loading system:
 
-### PR Review
+1. **Metadata (name + description)** - Always loaded (~100 words)
+2. **SKILL.md body** - Loaded when skill is relevant (~500 lines)
+3. **Reference files** - Loaded only when needed (as requested)
 
-| Context | Core | Scope | Consistency | Test Val | tk |
-|---------|------|-------|-------------|----------|-----|
-| Standard PR | ✅ | ❌ | ❌ | ✅ | ✅ |
-| PR with AC | ✅ | ✅ | ❌ | ✅ | ✅ |
-| New Feature | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Bug Fix | ✅ | ❌ | ❌ | ✅ | ✅ |
-| Refactoring | ✅ | ❌ | ✅ | ✅ | ✅ |
+This keeps context usage efficient. For example, when writing a Jira story about Cloud Foundry API:
+1. Agent loads `story-writing/SKILL.md` (321 lines)
+2. User mentions Jira → Agent loads `references/jira-markup.md` (457 lines)
+3. User mentions CAPI → Agent loads `references/cloud-foundry-api.md` (529 lines)
 
----
+Only the needed content is loaded, not all 1,771 lines.
 
-## Adding New Skills
+### When to Use Which Skill
 
-### System-Specific Skills
-Create skills for specific products or platforms:
-- `story-writing-cloud-foundry/` - CF-specific patterns
-- `story-writing-kubernetes/` - K8s-specific patterns
-- `story-writing-aws/` - AWS-specific patterns
+**Writing a user story:**
+- Enable `story-writing/`
+- Agent will ask about tracker (Jira, GitHub, etc.)
+- Agent will ask about domain (Cloud Foundry, Kubernetes, etc.)
+- Agent loads only relevant references
 
-### Domain-Specific Skills
-Create skills for other domains:
-- `story-writing-ui/` - Web/mobile UI patterns
-- `story-writing-database/` - Database schema/migration patterns
-- `story-writing-infrastructure/` - IaC and deployment patterns
+**Reviewing a pull request:**
+- Enable `pr-review/`
+- Enable `issue-tracking-tk/` (for tracking findings)
+- Agent will determine which validation techniques to use
+- Agent loads relevant references as needed
 
-### Issue Tracker Skills
-Create skills for other trackers:
-- `story-writing-github/` - GitHub Issues/Projects
-- `story-writing-asana/` - Asana tasks
-- `story-writing-linear/` - Linear issues
+**Creating a new skill:**
+- Enable `skill-writing/`
+- Agent will guide you through the process
+- Agent loads reference materials as needed
 
-**Note**: Each skill should be a directory containing `SKILL.md` with YAML frontmatter, following the [Agent Skills standard](https://agentskills.io/).
-
----
-
-## Principles for Creating New Skills
-
-1. **Keep skills focused** - One domain or concern per skill
-2. **Make them composable** - Skills should work together
-3. **Avoid duplication** - Reference other skills instead of repeating
-4. **Provide examples** - Show, don't just tell
-5. **Be prescriptive** - Give clear guidance, not just options
-6. **Stay generic** - Avoid project-specific details
-7. **Link between skills** - Show how they combine
+**Tracking work:**
+- Enable `issue-tracking-tk/`
+- Use for local, agent-coordinated work
+- Use for postponing work to later sessions
 
 ---
 
 ## Quick Start
 
-### Story Writing
+### Writing a Cloud Foundry API Story in Jira
 
-**I'm writing a Cloud Foundry API story in Jira**
-1. Read [Generic Story Writing](story-writing-generic/SKILL.md) for structure
-2. Read [Jira Story Writing](story-writing-jira/SKILL.md) for markup
-3. Read [Cloud Foundry API Story Writing](story-writing-cloud-foundry-api/SKILL.md) for complete CAPI guidance
+1. Enable `story-writing/` skill
+2. Tell the agent you're writing a Jira story about a CAPI endpoint
+3. Agent loads:
+   - `story-writing/SKILL.md` (universal principles)
+   - `references/jira-markup.md` (Jira formatting)
+   - `references/cloud-foundry-api.md` (CAPI patterns)
 
-**I'm writing a Cloud Foundry CLI story in Jira**
-1. Read [Generic Story Writing](story-writing-generic/SKILL.md) for structure
-2. Read [Jira Story Writing](story-writing-jira/SKILL.md) for markup
-3. Read [Cloud Foundry CLI Story Writing](story-writing-cloud-foundry-cli/SKILL.md) for complete CF CLI guidance
+### Reviewing a Pull Request
 
-**I'm new to story writing**
-1. Start with [Generic Story Writing](story-writing-generic/SKILL.md)
-2. Learn your issue tracker's formatting (e.g., [Jira Story Writing](story-writing-jira/SKILL.md))
-3. Add system-specific skills as needed (e.g., Cloud Foundry)
+1. Enable `pr-review/` and `issue-tracking-tk/` skills
+2. Ask agent to review the PR
+3. Agent loads:
+   - `pr-review/SKILL.md` (core process)
+   - `references/test-validation.md` (if bugs suspected)
+   - `references/consistency-patterns.md` (if new features added)
+   - `references/scope-validation.md` (if detailed AC exists)
 
-### PR Review
+### Creating a New Skill
 
-**I'm reviewing a pull request**
-1. Read [PR Review: Core](pr-review-core/SKILL.md) for the process
-2. Use [Issue Tracking with tk](issue-tracking-tk/SKILL.md) to track findings
-3. Add [PR Review: Scope Validation](pr-review-scope-validation/SKILL.md) if PR has detailed acceptance criteria
-4. Add [PR Review: Consistency Check](pr-review-consistency-check/SKILL.md) for new features
-5. Use [PR Review: Test-Driven Validation](pr-review-test-validation/SKILL.md) to validate bugs
+1. Enable `skill-writing/` skill
+2. Ask agent to help create a skill
+3. Agent loads:
+   - `skill-writing/SKILL.md` (core principles)
+   - `references/TEMPLATE.md` (template)
+   - `references/CREATION-PROCESS.md` (step-by-step guide)
+   - Other references as needed
 
-**I'm new to code review**
-1. Start with [PR Review: Core](pr-review-core/SKILL.md)
-2. Learn [Issue Tracking with tk](issue-tracking-tk/SKILL.md) for tracking
-3. Add specialized skills as needed
+---
 
-### Creating Skills
+## Adding New Skills
 
-**I'm creating a new skill**
-1. Read [Skill Writing Skill](skill-writing/SKILL.md)
-2. Follow the structure and principles
-3. Update this README when done
+When creating new skills, follow the progressive disclosure pattern:
+
+### Core Skill Structure
+```
+my-skill/
+├── SKILL.md           # Universal principles + navigation (~500 lines)
+└── references/        # Loaded as needed
+    ├── tracker-a.md   # Tracker-specific content
+    ├── domain-b.md    # Domain-specific content
+    └── framework-c.md # Framework-specific content
+```
+
+### Examples of New Skills
+
+**System-specific skills:**
+- `story-writing/references/kubernetes.md` - Add K8s patterns to story-writing
+- `story-writing/references/aws.md` - Add AWS patterns to story-writing
+
+**Tracker-specific skills:**
+- `story-writing/references/github-markdown.md` - Add GitHub formatting
+- `story-writing/references/linear-formatting.md` - Add Linear formatting
+
+**Language-specific skills:**
+- `pr-review/references/python-patterns.md` - Add Python review patterns
+- `pr-review/references/go-patterns.md` - Add Go review patterns
+
+**Note**: Each reference file should focus on one tracker/domain/framework and be loaded only when relevant.
+
+---
+
+## Principles for Skill Development
+
+1. **Keep skills focused** - One concern per skill
+2. **Use progressive disclosure** - Split variants into references/
+3. **Avoid duplication** - Reference other skills or reference files
+4. **Provide examples** - Show, don't just tell
+5. **Be prescriptive** - Give clear guidance, not just options
+6. **Stay generic** - Avoid project-specific details
+7. **Keep SKILL.md under 500 lines** - Split content into references when needed
 
 ---
 
 ## Contributing
 
 When adding or updating skills:
-- Keep the modular structure
-- Update this README with new skills
-- Show how skills compose together
-- Provide clear examples
-- Test with real stories
+- Follow the [Skill Writing Skill](skill-writing/SKILL.md) guidance
+- Use progressive disclosure for variants
+- Update this README with new skills or references
+- Test with real usage scenarios

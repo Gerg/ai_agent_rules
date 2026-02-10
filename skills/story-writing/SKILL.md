@@ -1,12 +1,22 @@
 ---
-name: story-writing-generic
-description: Universal guide for writing well-structured user stories, regardless of issue tracker or domain. Use when writing any user story to ensure proper structure, Given/When/Then format, and clear acceptance criteria.
+name: story-writing
+description: Guide for writing well-structured user stories across all issue trackers and domains. Use when writing user stories to ensure proper structure, Given/When/Then format, clear acceptance criteria, and appropriate tracker-specific formatting. Covers generic principles, Jira markup, Cloud Foundry API patterns, and Cloud Foundry CLI patterns.
 ---
 
-# Generic Story Writing Skill
+# Story Writing
 
+A comprehensive guide for writing well-structured user stories.
 
-A universal guide for writing well-structured user stories, regardless of issue tracker or domain.
+## Using This Skill
+
+This skill provides universal principles for story writing. For tracker or domain-specific guidance, see the references below.
+
+**Tracker-specific formatting:**
+- **Jira**: See [references/jira-markup.md](references/jira-markup.md) for Jira-specific markup and formatting
+
+**Domain-specific patterns:**
+- **Cloud Foundry API**: See [references/cloud-foundry-api.md](references/cloud-foundry-api.md) for CAPI story patterns
+- **Cloud Foundry CLI**: See [references/cloud-foundry-cli.md](references/cloud-foundry-cli.md) for CF CLI story patterns
 
 ## Core Principles
 
@@ -309,12 +319,3 @@ This skill should be adapted based on:
 - **Methodology**: Scrum, Kanban, Scrumban, etc.
 
 Always prioritize consistency with existing stories in your project over generic patterns.
-
-## Integration with Other Skills
-
-This generic skill provides the foundation. Combine with:
-- **Issue Tracker Skills** (e.g., Jira, GitHub Issues) - For formatting and markup
-- **Domain Skills** (e.g., API, CLI, UI) - For domain-specific patterns
-- **System Skills** (e.g., specific product or platform) - For system-specific conventions
-
-Use all applicable skills together to create well-formed, consistent stories for your specific context.

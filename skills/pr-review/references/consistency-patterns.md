@@ -1,17 +1,6 @@
----
-name: pr-review-consistency-check
-description: Verify code follows existing patterns and architectural conventions. Use when reviewing new features or checking architectural alignment to ensure consistency with existing codebase patterns.
----
-
-# PR Review: Consistency Check
+# Consistency Checking
 
 Verify that new code follows existing codebase patterns and conventions.
-
-## Prerequisites
-- Understanding of the project's architecture
-- Access to existing codebase for comparison
-- Familiarity with the programming language and framework
-- Knowledge of project's coding standards
 
 ## Process
 

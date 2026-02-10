@@ -1,17 +1,6 @@
----
-name: story-writing-cloud-foundry-api
-description: Comprehensive guide for writing Cloud Foundry API (CAPI) user stories. Use when writing stories about CAPI endpoints, including CRUD operations, error handling, pagination, permissions, and async operations.
----
-
-# Cloud Foundry API Story Writing
-
+# Cloud Foundry API Story Patterns
 
 Patterns and conventions for writing user stories about Cloud Foundry API (CAPI) endpoints.
-
-## Prerequisites
-
-- [Generic Story Writing](../story-writing-generic/SKILL.md) - Core story structure
-- [Jira Story Writing](../story-writing-jira/SKILL.md) - Jira markup (if using Jira)
 
 ## Overview
 
@@ -534,7 +523,7 @@ CAPI uses `/v3/` in URL path:
 ## Integration with Other Skills
 
 Use this skill with:
-- **[Generic Story Writing](../story-writing-generic/SKILL.md)** - Core structure and principles
-- **[Jira Story Writing](../story-writing-jira/SKILL.md)** - Jira markup and formatting
+- **[Story Writing](../SKILL.md)** - Core structure and principles
+- **[Jira Markup](jira-markup.md)** - Jira markup and formatting
 
 This skill provides comprehensive Cloud Foundry API story writing guidance.

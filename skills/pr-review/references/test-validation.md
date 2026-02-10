@@ -1,21 +1,8 @@
----
-name: pr-review-test-validation
-description: Validate suspected bugs empirically through tests before creating tickets. Use when validating suspected bugs or edge cases during review to confirm issues with failing tests before reporting them.
----
-
-# PR Review: Test-Driven Validation
+# Test-Driven Validation
 
 Validate suspected bugs and edge cases empirically through tests before creating tickets.
 
-## Prerequisites
-- Access to test suite and test environment
-- Ability to run tests locally
-- Understanding of the testing framework
-- Knowledge of how to write tests in the codebase
-
-## Note on Examples
-
-This skill includes examples in multiple languages (Ruby/RSpec, Go, Python/pytest, JavaScript/Jest) to illustrate universal patterns. Adapt the concepts to your specific testing framework.
+**Note**: This guide includes examples in multiple languages (Ruby/RSpec, Go, Python/pytest, JavaScript/Jest) to illustrate universal patterns. Adapt the concepts to your specific testing framework.
 
 ## Process
 

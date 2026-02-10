@@ -1,16 +1,6 @@
----
-name: story-writing-jira
-description: Jira-specific markup and conventions for writing user stories. Use when writing stories in Jira to properly format text, code blocks, tables, links, and use Jira-specific features like panels and quotes.
----
-
-# Jira Story Writing
-
+# Jira Markup and Formatting
 
 Jira-specific markup, formatting, and conventions for writing user stories.
-
-## Prerequisites
-
-This skill builds on [Generic Story Writing](../story-writing-generic/SKILL.md). Use both together.
 
 ## Jira Markup Reference
 
@@ -460,7 +450,7 @@ label1, label2
 ## Integration with Other Skills
 
 Use this skill with:
-- **[Generic Story Writing](../story-writing-generic/SKILL.md)** - Core story structure and principles
+- **[Story Writing](../SKILL.md)** - Core story structure and principles
 - **Domain-specific skills** - API, CLI, UI patterns
 - **System-specific skills** - Product or platform conventions
 

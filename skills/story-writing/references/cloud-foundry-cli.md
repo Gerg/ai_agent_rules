@@ -1,17 +1,6 @@
----
-name: story-writing-cloud-foundry-cli
-description: Comprehensive guide for writing Cloud Foundry CLI (cf CLI) user stories. Use when writing stories about cf CLI commands, including command structure, output formats, error handling, help text, and exit codes.
----
-
-# Cloud Foundry CLI Story Writing
-
+# Cloud Foundry CLI Story Patterns
 
 Patterns and conventions for writing user stories about Cloud Foundry CLI (cf CLI) commands.
-
-## Prerequisites
-
-- [Generic Story Writing](../story-writing-generic/SKILL.md) - Core story structure
-- [Jira Story Writing](../story-writing-jira/SKILL.md) - Jira markup (if using Jira)
 
 ## Overview
 
@@ -469,7 +458,7 @@ TIP: Use 'cf apps' to see all apps.
 ## Integration with Other Skills
 
 Use this skill with:
-- **[Generic Story Writing](../story-writing-generic/SKILL.md)** - Core structure and principles
-- **[Jira Story Writing](../story-writing-jira/SKILL.md)** - Jira markup and formatting
+- **[Story Writing](../SKILL.md)** - Core structure and principles
+- **[Jira Markup](jira-markup.md)** - Jira markup and formatting
 
 This skill provides comprehensive Cloud Foundry CLI story writing guidance.

@@ -5,7 +5,7 @@ description: Track issues, findings, and tasks during code reviews or developmen
 
 # Issue Tracking with tk
 
-Track issues, findings, and tasks during code reviews or development work using the `tk` utility.
+Track issues, findings, and tasks using the `tk` utility for AI agent coordination and local work management.
 
 ## Prerequisites
 - `tk` utility available in PATH
