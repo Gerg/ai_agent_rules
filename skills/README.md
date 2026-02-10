@@ -92,6 +92,20 @@ Create effective skill documents using progressive disclosure.
 
 ---
 
+### [Agent Session Retrospective](agent-session-retro/SKILL.md)
+Conduct end-of-session retrospectives to identify improvements.
+
+**Core content:**
+- Structured retrospective process
+- Identifying what worked well and what didn't
+- Proposing concrete improvements (skills, AGENTS.md, processes)
+- Reflecting on collaboration patterns
+- Common improvement categories
+
+**Use when**: At end of significant work sessions, after complex tasks, or when user requests retrospective
+
+---
+
 ## How Skills Work
 
 ### Progressive Disclosure
