@@ -45,7 +45,7 @@ Create separate skills when tools/approaches serve fundamentally different purpo
 - Each skill is complete for its purpose
 
 **Examples:** 
-- `issue-tracking-tk/` - AI agent coordination for small-scale, local work
+- `agent-issue-tracking/` - AI agent coordination for small-scale, local work (with `references/tk.md` for tk-specific commands)
 - `issue-tracking-jira/` - Human team tracking for high-level issues
 - `deployment/` - Deploy new versions
 - `deployment-rollback/` - Undo deployments

@@ -323,7 +323,7 @@ GOOD: "Security fixes require test coverage per our standards.
 
 Use this skill with:
 - **[PR Review](../SKILL.md)** - Use as step 2 after initializing review
-- **[Issue Tracking with tk](../issue-tracking-tk/SKILL.md)** - Track scope findings and follow-up work
+- **[Agent Issue Tracking](../../agent-issue-tracking/SKILL.md)** - Track scope findings and follow-up work
 
 In core review process, add scope validation as first step:
 

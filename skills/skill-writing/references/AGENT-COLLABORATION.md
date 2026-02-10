@@ -116,4 +116,4 @@ Benefits: Clear progress (3/6 done), can parallelize, trackable
 - Task is simple and quick
 - Splitting adds overhead
 
-See [Issue Tracking with tk](../../issue-tracking-tk/SKILL.md) for implementation details.
+See [Agent Issue Tracking](../../agent-issue-tracking/SKILL.md) for implementation details.

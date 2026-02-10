@@ -50,18 +50,21 @@ Conduct systematic, thorough code reviews with test-driven validation.
 
 ---
 
-### [Issue Tracking with tk](issue-tracking-tk/SKILL.md)
-Track issues and coordinate work using the tk utility.
+### [Agent Issue Tracking](agent-issue-tracking/SKILL.md)
+Track issues and coordinate work using agent-friendly issue tracking tools.
 
 **Core content:**
-- Basic tk operations
-- Ticket decomposition patterns
+- Agent-based issue tracking principles
+- Ticket structure and decomposition
 - Parent/child relationships
 - Dependencies and blocking
 - Multi-agent coordination
-- Query and reporting
+- Workflow patterns
 
-**Use when**: Managing code reviews, development tasks, or coordinating with other agents
+**References (loaded as needed):**
+- `references/tk.md` - tk utility commands and syntax
+
+**Use when**: Managing code reviews, development tasks, coordinating with other agents, or postponing work
 
 ---
 
@@ -116,7 +119,7 @@ Only the needed content is loaded, not all 1,771 lines.
 
 **Reviewing a pull request:**
 - Enable `pr-review/`
-- Enable `issue-tracking-tk/` (for tracking findings)
+- Enable `agent-issue-tracking/` (for tracking findings)
 - Agent will determine which validation techniques to use
 - Agent loads relevant references as needed
 
@@ -126,9 +129,10 @@ Only the needed content is loaded, not all 1,771 lines.
 - Agent loads reference materials as needed
 
 **Tracking work:**
-- Enable `issue-tracking-tk/`
+- Enable `agent-issue-tracking/`
 - Use for local, agent-coordinated work
 - Use for postponing work to later sessions
+- Agent loads tool-specific reference (e.g., tk, beans, beads) as needed
 
 ---
 
@@ -145,13 +149,15 @@ Only the needed content is loaded, not all 1,771 lines.
 
 ### Reviewing a Pull Request
 
-1. Enable `pr-review/` and `issue-tracking-tk/` skills
+1. Enable `pr-review/` and `agent-issue-tracking/` skills
 2. Ask agent to review the PR
 3. Agent loads:
    - `pr-review/SKILL.md` (core process)
-   - `references/test-validation.md` (if bugs suspected)
-   - `references/consistency-patterns.md` (if new features added)
-   - `references/scope-validation.md` (if detailed AC exists)
+   - `agent-issue-tracking/SKILL.md` (tracking)
+   - `agent-issue-tracking/references/tk.md` (tk commands)
+   - `pr-review/references/test-validation.md` (if bugs suspected)
+   - `pr-review/references/consistency-patterns.md` (if new features added)
+   - `pr-review/references/scope-validation.md` (if detailed AC exists)
 
 ### Creating a New Skill
 

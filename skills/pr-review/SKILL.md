@@ -17,7 +17,7 @@ This skill provides the core PR review process. For specialized review technique
 - **Test-Driven Validation**: See [references/test-validation.md](references/test-validation.md) for empirically validating suspected bugs
 
 ## Prerequisites
-- Issue tracking system available (see: ../issue-tracking-tk/SKILL.md for tk-specific commands)
+- Issue tracking system available (see: ../agent-issue-tracking/SKILL.md for agent-based tracking)
 - Test environment accessible
 - Access to codebase and related documentation
 
@@ -37,7 +37,7 @@ Create a main review tracking item with:
 - **Tags:** review, security, authentication
 - **External Reference:** Link to PR or ticket
 
-See [Issue Tracking with tk](../issue-tracking-tk/SKILL.md) for tk-specific commands, or use your project's issue tracking system.
+See [Agent Issue Tracking](../agent-issue-tracking/SKILL.md) for agent-based tracking, or use your project's issue tracking system.
 
 ### 2. Understand Scope
 - Read all changed files completely
@@ -67,7 +67,7 @@ Common categories:
 - Documentation
 - Security/validation
 
-See [Issue Tracking with tk](../issue-tracking-tk/SKILL.md) for implementation details on creating and linking tickets.
+See [Agent Issue Tracking](../agent-issue-tracking/SKILL.md) for implementation details on creating and linking tickets.
 
 ### 3.5. Check for Duplication
 
@@ -245,7 +245,7 @@ Provide user with:
 
 ## Tool Integration
 This skill works with any issue tracking system. Examples:
-- **tk utility**: See [issue-tracking-tk](../issue-tracking-tk/SKILL.md) for tk-specific commands
+- **tk utility**: See [agent-issue-tracking](../agent-issue-tracking/SKILL.md) for agent-based tracking with tk
 - **GitHub Issues**: Create issues via gh CLI or API
 - **JIRA**: Create tickets via API or CLI tools
 - **Linear**: Create issues via API

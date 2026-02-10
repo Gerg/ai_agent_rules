@@ -67,7 +67,7 @@ Create separate skills for **orthogonal concerns** - fundamentally different typ
 
 ✅ Separate skills:
 - `story-writing/` vs `pr-review/` - Different activities
-- `issue-tracking-tk/` vs `issue-tracking-jira/` - Different outcomes (AI agent coordination vs human team tracking)
+- `agent-issue-tracking/` vs `issue-tracking-jira/` - Different outcomes (AI agent coordination vs human team tracking)
 - `deployment/` vs `deployment-rollback/` - Different outcomes (deploy vs undo)
 
 **When to use references:**
@@ -495,7 +495,7 @@ For domain-specific guidance:
 ```markdown
 ## Related Skills
 
-- **[Issue Tracking](../issue-tracking-tk/SKILL.md)** - Track findings during review
+- **[Agent Issue Tracking](../agent-issue-tracking/SKILL.md)** - Track findings during review
 - **[Story Writing](../story-writing/SKILL.md)** - Write stories for identified issues
 ```
 
@@ -540,7 +540,7 @@ Name skills by the type of work or outcome they address. Domains, tools, and var
 - Directory name must match `name` field in SKILL.md frontmatter
 - Avoid redundant suffixes (e.g., `skill-writing` not `skill-writing-skill`)
 
-**Note**: If you have truly different outcomes (like `issue-tracking-tk/` for AI coordination vs `issue-tracking-jira/` for human team tracking), you may need more specific names to distinguish them. But most cases should use a single broad skill with references.
+**Note**: If you have truly different outcomes (like `agent-issue-tracking/` for AI coordination vs `issue-tracking-jira/` for human team tracking), you may need more specific names to distinguish them. But most cases should use a single broad skill with references.
 
 ### README as Navigation Guide
 The `README.md` should:
@@ -548,7 +548,7 @@ The `README.md` should:
 - Explain which skills have extensions
 - Note which skills have extensive references/ directories
 - Provide quick start guides
-- Show how to use skills together (e.g., pr-review + issue-tracking-tk)
+- Show how to use skills together (e.g., pr-review + agent-issue-tracking)
 
 ## Agent Collaboration on Skills
 
