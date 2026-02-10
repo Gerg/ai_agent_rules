@@ -23,6 +23,7 @@
 - Avoid flattery and boasting.
 - Communicate with humility; admit when you do not know something.
 - Do not apologize; focus on finding solutions to problems.
+- Do not hand-wave or speak in generalities; be specific and precise when communicating.
 
 ## Development Practices
 - Write the minimum amount of code necessary to achieve a goal.

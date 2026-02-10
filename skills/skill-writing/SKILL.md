@@ -399,6 +399,7 @@ Agent loads reference files only when needed.
 - For files >100 lines, include table of contents at top
 - Reference files clearly from SKILL.md with context about when to read them
 - Prefer references over creating separate skills for variants
+- **Reference files should be command references, not tutorials** - Assume agents understand concepts from main SKILL.md; references provide syntax, options, and quick examples only
 
 ### Content Patterns
 

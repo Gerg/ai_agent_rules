@@ -14,6 +14,8 @@ This skill provides universal principles for agent-based issue tracking. For too
 **Tool-specific references:**
 - **tk**: See [references/tk.md](references/tk.md) for tk utility commands and syntax
 
+**Important**: Use only ONE tracking tool per session/project. If tk is being used, ignore other tracking systems (like Cursor's built-in TODOs, GitHub Issues for local work, etc.). Mixing tools creates confusion and duplicate tracking overhead.
+
 ## Core Concepts
 
 ### Purpose
@@ -204,6 +206,19 @@ Large work item with multiple sub-tasks.
 - **P2**: Important, should address soon, user-facing bugs
 - **P3**: Nice to have, refactoring, minor improvements
 - **P4**: Polish, documentation tweaks, low priority
+
+## Tool Selection
+
+**Use one tool consistently:**
+- Choose tk, beans, beads, or another agent-friendly tool
+- Stick with it for the entire session/project
+- Ignore other tracking systems (Cursor TODOs, etc.) to avoid duplication
+
+**When to use agent tracking vs human tracking:**
+- **Agent tracking (tk, beans, beads)**: Local work, code reviews, agent coordination, ephemeral tasks
+- **Human tracking (Jira, GitHub Issues)**: Project-wide work, team coordination, long-lived issues, stakeholder visibility
+
+**Don't mix tools for the same work** - creates confusion and duplicate effort.
 
 ## Best Practices
 
