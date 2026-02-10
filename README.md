@@ -1,3 +1,9 @@
+
+<div align="center">
+  <img width="500" alt="ai-tools-and-polecats" src="https://github.com/user-attachments/assets/4f4b7608-474c-4834-8401-252aebe80091" />
+  <p><i>Image assembed by a human from public domain images.</i></p>
+</div>
+
 # Gerg's Signature® Instructions for AI Coding Agents
 
 ## Overview
