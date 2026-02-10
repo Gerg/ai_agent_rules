@@ -2,6 +2,13 @@
 
 Guidance for AI agents working on skills with users.
 
+## Contents
+
+- [When to Prompt for Decisions](#when-to-prompt-for-decisions)
+- [When to Make Autonomous Decisions](#when-to-make-autonomous-decisions)
+- [Presenting Options](#presenting-options)
+- [Ticket Decomposition](#ticket-decomposition)
+
 ## When to Prompt for Decisions
 
 **Always prompt for:**

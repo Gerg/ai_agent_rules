@@ -65,7 +65,7 @@ that prevents it from following symlinks for skills.
 ln -s /path/to/ai_agent_rules/skills ~/.cursor/skills
 
 # Option 2: Symlink individual skills
-ln -s /path/to/ai_agent_rules/skills/generic-story-writing ~/.cursor/skills/generic-story-writing
+ln -s /path/to/ai_agent_rules/skills/story-writing ~/.cursor/skills/story-writing
 
 # Option 3: Copy skills to discovery location
 cp -r /path/to/ai_agent_rules/skills/* ~/.cursor/skills/
