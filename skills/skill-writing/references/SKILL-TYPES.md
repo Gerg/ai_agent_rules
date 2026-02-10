@@ -2,47 +2,67 @@
 
 Reference guide for different types of skills and their characteristics.
 
-## Foundation Skills
-Provide core concepts applicable everywhere.
+## Core Skills
+Provide comprehensive coverage of an activity with universal principles and references for variants.
 
 **Characteristics:**
+- Cover one type of activity/concern
+- Include universal principles in SKILL.md
+- Use references/ for tracker/domain/framework-specific content
+- Standalone (can be used without other skills)
 - Broad applicability
-- No dependencies
-- Referenced by many other skills
-- Generic principles
 
-**Example:** `story-writing-generic/`
+**Examples:** 
+- `story-writing/` - Story writing with references for Jira, GitHub, Cloud Foundry, etc.
+- `pr-review/` - PR review with references for language-specific patterns
+- `testing/` - Testing principles with references for RSpec, Jest, pytest, etc.
 
-## Domain Skills
-Cover specific domains or technologies.
+## Extension Skills
+Rare. Enhance core skills with substantial, optional capabilities that warrant separate skill activation.
 
-**Characteristics:**
-- Focused on one domain
-- Build on foundation skills
-- Composable with tool skills
-- Domain-specific patterns
-- Can be system-specific
+**When to use:**
+- Enhancement is substantial (hundreds of lines)
+- Most users won't need it
+- Complete, separable capability (not just a variant)
+- Requires its own skill activation
 
-**Examples:** `story-writing-cloud-foundry-api/`, `story-writing-cloud-foundry-cli/`
+**Most enhancements should be references instead.**
 
-## Tool Skills
-Cover specific tools or platforms.
+**Example (if truly substantial):** 
+- `pr-review-security-audit/` - Substantial security-focused extension to pr-review
 
-**Characteristics:**
-- Tool-specific markup or conventions
-- Orthogonal to domain skills
-- Composable with domain skills
-- Technical reference
+**Counter-examples (should be references):**
+- ❌ `pr-review-scope-validation/` → Use `pr-review/references/scope-validation.md`
+- ❌ `pr-review-consistency-check/` → Use `pr-review/references/consistency-patterns.md`
 
-**Examples:** `story-writing-jira/`, `issue-tracking-tk/`
-
-## Process Skills
-Cover systematic processes and workflows.
+## Separate Skills for Different Outcomes
+Create separate skills when tools/approaches serve fundamentally different purposes or outcomes, even if nominally similar.
 
 **Characteristics:**
-- Process-oriented guidance
-- Can be foundation or extension
-- Composable with tool skills
-- Step-by-step procedures
+- Different intended outcomes or use cases
+- Different user populations or contexts
+- Not interchangeable
+- Each skill is complete for its purpose
 
-**Examples:** `pr-review-core/`, `pr-review-consistency-check/`
+**Examples:** 
+- `issue-tracking-tk/` - AI agent coordination for small-scale, local work
+- `issue-tracking-jira/` - Human team tracking for high-level issues
+- `deployment/` - Deploy new versions
+- `deployment-rollback/` - Undo deployments
+
+**Counter-example (should be references):**
+- ❌ `issue-tracking-linear/` vs `issue-tracking-jira/` - Same outcome (human team tracking), just different tools → Use `issue-tracking/references/linear.md` and `issue-tracking/references/jira.md`
+
+## Reference Files
+Domain/tracker/framework-specific content within a core skill.
+
+**Characteristics:**
+- Lives in skill's references/ directory
+- Loaded on-demand by agent
+- Specific to one variant/domain
+- Supplements core skill
+
+**Examples:**
+- `story-writing/references/jira-markup.md` - Jira-specific formatting
+- `story-writing/references/cloud-foundry-api.md` - Cloud Foundry API patterns
+- `pr-review/references/ruby-patterns.md` - Ruby-specific review patterns

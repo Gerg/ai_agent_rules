@@ -1,19 +1,19 @@
 ---
 name: skill-writing
-description: Meta-skill for creating effective, composable skill documents. Use when creating new skills, updating existing skills, reviewing skill quality and structure, or when users request help with skill design, organization, or best practices.
+description: Meta-skill for creating effective skill documents using progressive disclosure. Use when creating new skills, updating existing skills, reviewing skill quality and structure, organizing skills with references, or when users request help with skill design, organization, or best practices.
 license: Apache-2.0 (see LICENSE file)
 ---
 
 # Skill Writing Skill
 
-A meta-skill for creating effective, composable skill documents.
+A meta-skill for creating effective skill documents using progressive disclosure.
 
 ## What is a Skill?
 
 A **skill** is a reusable knowledge document that provides structured guidance on how to accomplish a specific type of task. Skills are designed to be:
 
-- **Focused** - Cover one domain or concern
-- **Composable** - Work together with other skills
+- **Focused** - Cover one concern or outcome
+- **Extensible** - Support variants through references and optional extensions
 - **Prescriptive** - Provide clear, actionable guidance
 - **Generic** - Avoid project-specific details
 - **Reusable** - Apply across multiple contexts
@@ -46,119 +46,97 @@ Match the level of specificity to the task's fragility and variability:
 Think of the agent as exploring a path: a narrow bridge with cliffs needs specific guardrails (low freedom), while an open field allows many routes (high freedom).
 
 ### 3. Single Responsibility
-Each skill should focus on one domain, concern, or aspect of work.
+Each skill should focus on one concern or outcome. Use progressive disclosure (references/) for variants.
 
 ✅ Good:
-- `story-writing-cloud-foundry-api/` - CAPI-specific patterns
-- `story-writing-jira/` - Jira markup and conventions
-- `story-writing-cloud-foundry-cli/` - CF CLI-specific patterns
+- `story-writing/` - Story writing with references for different trackers/domains
+- `pr-review/` - PR review with references for different validation types
+- `deployment/` - Deployment with references for different platforms
 
 ❌ Bad:
-- `story-writing/` - Too broad, mixes everything
+- `development/` - Too broad, covers everything
 - `jira-api-story-writing-cloud-foundry-cli/` - Multiple concerns in one skill
 
-### 4. Composability
-Skills should work together. Design for combination, not isolation.
+### 4. When to Create Separate Skills vs Use References
 
-**Composition Models:**
+**When to create separate skills:**
 
-There are two main models for skill composition, both valid:
+Create separate skills for **orthogonal concerns** - fundamentally different types of work or outcomes:
 
-#### Model A: Additive Composition (Story Writing)
-Skills are peers that combine together. No hierarchy.
+✅ Separate skills:
+- `story-writing/` vs `pr-review/` - Different activities
+- `issue-tracking-tk/` vs `issue-tracking-jira/` - Different outcomes (AI agent coordination vs human team tracking)
+- `deployment/` vs `deployment-rollback/` - Different outcomes (deploy vs undo)
 
-**Pattern:**
+**When to use references:**
+
+Use `references/` subdirectories for **variants within a concern** - different contexts or domains for the same type of work:
+
+✅ Use references:
+- `story-writing/references/jira-markup.md` - Tracker-specific formatting
+- `story-writing/references/cloud-foundry-api.md` - Domain-specific patterns
+- `pr-review/references/ruby-patterns.md` - Language-specific conventions
+
+**When to use extensions:**
+
+Extensions are rare - most enhancements should be references. Only create extensions when the enhancement is substantial and optional.
+
+Consider extensions when:
+- The enhancement is a complete, separable capability (not just a variant)
+- The enhancement is substantial (hundreds of lines)
+- Most users won't need the enhancement
+- The enhancement requires its own skill activation
+
+**Example (if truly substantial):**
 ```
-Foundation + Tracker + Domain = Complete skill set
-
-story-writing-generic/ (foundation)
+pr-review/ (core process with references for language patterns)
     +
-story-writing-jira/ (tool)
-    +
-story-writing-cloud-foundry-api/ (domain)
+pr-review-security-audit/ (optional, substantial security-focused extension)
     =
-Complete Jira CAPI story writing
+Enhanced PR review with security audit
 ```
 
-**Characteristics:**
-- Skills are independent peers
-- Combine any foundation + tracker + domain
-- No skill depends on another
-- Mix and match freely
-- Example: Generic + GitHub + CLI
+**Most cases should use references instead:**
+- Scope validation → `pr-review/references/scope-validation.md`
+- Consistency checking → `pr-review/references/consistency-patterns.md`
+- Language-specific patterns → `pr-review/references/ruby.md`
 
-**Use when:**
-- Multiple orthogonal concerns
-- Users need different combinations
-- Skills apply across contexts
+### 5. Clear Prerequisites and Context
+State what other skills are required and guide users to relevant references.
 
-#### Model B: Core + Extensions (PR Review)
-One core skill with optional extensions that build on it.
-
-**Pattern:**
-```
-Core + Extension(s) = Enhanced capability
-
-pr-review-core/ (required foundation)
-    +
-pr-review-scope-validation/ (optional extension)
-    +
-pr-review-consistency-check/ (optional extension)
-    =
-Enhanced PR review
-```
-
-**Characteristics:**
-- Core skill is required
-- Extensions depend on core
-- Extensions are optional
-- Extensions can be used independently
-- Example: Core + Scope + Consistency
-
-**Use when:**
-- Clear foundational process
-- Extensions add specialized capabilities
-- Not all users need all extensions
-- Extensions share common foundation
-
-#### Choosing a Model
-
-**Use Additive (Model A) when:**
-- Concerns are orthogonal (tracker vs domain)
-- No clear hierarchy
-- Users need different combinations
-- Skills are equally important
-
-**Use Core + Extensions (Model B) when:**
-- Clear foundational process exists
-- Extensions are specialized/optional
-- Extensions build on core concepts
-- Core is always needed
-
-**Both models are valid** - choose based on your skill domain.
-
-### 5. Clear Prerequisites
-State what other skills or knowledge are required.
-
-**Format:**
+**For core skills:**
 ```markdown
-**Prerequisites**: This skill builds on [Generic Story Writing](../story-writing-generic/SKILL.md). 
-Combine with [Jira Story Writing](../story-writing-jira/SKILL.md) if using Jira.
+**Context**: This skill covers story writing across all trackers and domains.
+For tracker-specific formatting, see the references/ directory.
+For domain-specific patterns, see the appropriate reference file.
+```
+
+**For extension skills:**
+```markdown
+**Prerequisites**: This skill extends [PR Review](../pr-review/SKILL.md).
+Use this extension when validating PR scope against detailed acceptance criteria.
 ```
 
 ### 6. Avoid Duplication
-Reference other skills instead of repeating content.
+Use references for domain-specific content instead of creating separate skills or repeating content.
 
 ✅ Good:
 ```markdown
-For general story structure, see [Generic Story Writing](../story-writing-generic/SKILL.md).
-This skill focuses on API-specific patterns.
+## Domain-Specific Patterns
+
+For domain-specific story patterns:
+- **Cloud Foundry API**: See [references/cloud-foundry-api.md](references/cloud-foundry-api.md)
+- **Kubernetes**: See [references/kubernetes.md](references/kubernetes.md)
+- **AWS**: See [references/aws.md](references/aws.md)
 ```
 
 ❌ Bad:
 ```markdown
-Stories should be small and atomic. Use Given/When/Then format...
-[repeating content from generic skill]
+## Cloud Foundry API Patterns
+[Repeating all CAPI patterns in main SKILL.md]
+
+## Kubernetes Patterns
+[Repeating all K8s patterns in main SKILL.md]
 ```
 
 ### 7. Generic Over Specific
@@ -227,10 +205,18 @@ disable-model-invocation: false (optional, default false)
 Brief description of what this skill covers and when to use it.
 ```
 
-#### 2. Prerequisites (if applicable)
+#### 2. Context and Navigation (if applicable)
+
+**For core skills with references:**
 ```markdown
-**Prerequisites**: This skill builds on [Other Skill](../other-skill/SKILL.md).
-Use together with [Another Skill](../another-skill/SKILL.md) for complete coverage.
+**Context**: This skill covers [activity] across all [trackers/domains/frameworks].
+For [tracker/domain/framework]-specific guidance, see the references/ directory.
+```
+
+**For extension skills:**
+```markdown
+**Prerequisites**: This skill extends [Base Skill](../base-skill/SKILL.md).
+Use this extension when [specific scenario].
 ```
 
 #### 3. Core Principles or Overview
@@ -277,23 +263,37 @@ What to avoid, with examples.
 ```
 
 #### 7. Integration Guidance
-How this skill combines with others.
+How this skill works with extensions and references.
 
+**For core skills with references:**
 ```markdown
-## Integration with Other Skills
+## Using This Skill
 
-Use this skill with:
-- **[Skill A](../skill-a/SKILL.md)** - When/why to combine
-- **[Skill B](../skill-b/SKILL.md)** - When/why to combine
+This skill provides universal principles for [activity].
 
-Together, these provide [complete coverage of what].
+**Tracker-specific guidance:**
+- **Jira**: See [references/jira-markup.md](references/jira-markup.md)
+- **GitHub**: See [references/github-markdown.md](references/github-markdown.md)
+
+**Domain-specific patterns:**
+- **Cloud Foundry**: See [references/cloud-foundry.md](references/cloud-foundry.md)
+- **Kubernetes**: See [references/kubernetes.md](references/kubernetes.md)
+```
+
+**For extension skills:**
+```markdown
+## Integration
+
+**Prerequisites**: This skill extends [Base Skill](../base-skill/SKILL.md).
+
+Use this extension when [specific scenario requiring the extension].
 ```
 
 ### Optional Sections
 
 - **Quick Reference** - Cheat sheet or summary
-- **Templates** - Copy-paste starting points
-- **Checklist** - Quality or completeness checklist
+- **Workflows** - Multi-step processes with checklists (see Workflows and Checklists section)
+- **Templates** - Output format templates (see Template Patterns section)
 - **Advanced Topics** - Deep dives for power users
 - **Troubleshooting** - Common issues and solutions
 
@@ -323,45 +323,59 @@ The skill should contain only what an agent needs to execute the task, not auxil
 
 ### Progressive Disclosure
 
-Skills use a three-level loading system to manage context efficiently:
+**Progressive disclosure is the primary pattern for managing skill complexity.** Skills use a three-level loading system to manage context efficiently:
 
 1. **Metadata (name + description)** - Always in context (~100 words)
 2. **SKILL.md body** - When skill triggers (<500 lines recommended)
 3. **Reference files** - As needed by agent (loaded on demand)
 
-**When to split content:**
+**When to use references:**
 - SKILL.md approaching 500 lines
-- Multiple frameworks/variants supported
-- Domain-specific sections that aren't always needed
-- Detailed reference material
+- Multiple trackers/tools supported (Jira, GitHub, Linear)
+- Multiple domains/platforms (Cloud Foundry, Kubernetes, AWS)
+- Multiple frameworks/variants (RSpec, Jest, pytest)
+- Detailed reference material (markup guides, API patterns)
+- Conditional features (advanced topics, troubleshooting)
 
 **Splitting patterns:**
 
-**Pattern 1: Framework/variant-specific details**
+**Pattern 1: Tracker/tool-specific details**
 ```
-skill-name/
-├── SKILL.md (core workflow + selection guidance)
+story-writing/
+├── SKILL.md (core principles + navigation)
 └── references/
-    ├── framework-a.md
-    ├── framework-b.md
-    └── framework-c.md
+    ├── jira-markup.md
+    ├── github-markdown.md
+    └── linear-formatting.md
 ```
 
-When user chooses framework A, agent reads only framework-a.md.
+When user works in Jira, agent reads only jira-markup.md.
 
-**Pattern 2: Domain-specific organization**
+**Pattern 2: Domain/platform-specific patterns**
 ```
-skill-name/
-├── SKILL.md (overview + navigation)
+story-writing/
+├── SKILL.md (universal principles + navigation)
 └── references/
-    ├── domain-1.md
-    ├── domain-2.md
-    └── domain-3.md
+    ├── cloud-foundry-api.md
+    ├── kubernetes.md
+    └── aws.md
 ```
 
-When user asks about domain 1, agent reads only domain-1.md.
+When user asks about Cloud Foundry, agent reads only cloud-foundry-api.md.
 
-**Pattern 3: Conditional details**
+**Pattern 3: Framework/language variants**
+```
+testing/
+├── SKILL.md (testing principles + navigation)
+└── references/
+    ├── rspec.md
+    ├── jest.md
+    └── pytest.md
+```
+
+When user works with Ruby, agent reads only rspec.md.
+
+**Pattern 4: Conditional details**
 ```markdown
 # SKILL.md
 
@@ -370,16 +384,244 @@ When user asks about domain 1, agent reads only domain-1.md.
 
 ## Advanced Features
 For advanced features, see:
-- **Feature X**: See [FEATURE-X.md](references/FEATURE-X.md)
-- **Feature Y**: See [FEATURE-Y.md](references/FEATURE-Y.md)
+- **Feature X**: See [references/feature-x.md](references/feature-x.md)
+- **Feature Y**: See [references/feature-y.md](references/feature-y.md)
 ```
 
 Agent loads reference files only when needed.
 
 **Guidelines:**
+- Keep SKILL.md focused on universal principles and navigation
+- Put tracker/domain/framework-specific content in references/
 - Keep references one level deep (link directly from SKILL.md)
 - For files >100 lines, include table of contents at top
 - Reference files clearly from SKILL.md with context about when to read them
+- Prefer references over creating separate skills for variants
+
+### Workflows and Checklists
+
+For complex multi-step processes, provide a workflow with a copy-paste checklist that agents can track.
+
+**When to use workflows:**
+- Process has 3+ sequential steps
+- Steps must be completed in order
+- Easy to skip critical steps
+- Progress tracking is valuable
+
+**Pattern:**
+```markdown
+## [Process Name] Workflow
+
+Copy this checklist and track your progress:
+
+```
+Task Progress:
+- [ ] Step 1: [First action]
+- [ ] Step 2: [Second action]
+- [ ] Step 3: [Third action]
+- [ ] Step 4: [Fourth action]
+- [ ] Step 5: [Final verification]
+```
+
+**Step 1: [First action]**
+[Detailed instructions for step 1]
+
+**Step 2: [Second action]**
+[Detailed instructions for step 2]
+
+...
+```
+
+**Example (code-based workflow):**
+```markdown
+## PDF Form Filling Workflow
+
+Copy this checklist and check off items as you complete them:
+
+```
+Task Progress:
+- [ ] Step 1: Analyze the form (run analyze_form.py)
+- [ ] Step 2: Create field mapping (edit fields.json)
+- [ ] Step 3: Validate mapping (run validate_fields.py)
+- [ ] Step 4: Fill the form (run fill_form.py)
+- [ ] Step 5: Verify output (run verify_output.py)
+```
+
+**Step 1: Analyze the form**
+Run: `python scripts/analyze_form.py input.pdf`
+This extracts form fields and their locations, saving to `fields.json`.
+
+**Step 2: Create field mapping**
+Edit `fields.json` to add values for each field.
+
+**Step 3: Validate mapping**
+Run: `python scripts/validate_fields.py fields.json`
+Fix any validation errors before continuing.
+
+**Step 4: Fill the form**
+Run: `python scripts/fill_form.py input.pdf fields.json output.pdf`
+
+**Step 5: Verify output**
+Run: `python scripts/verify_output.py output.pdf`
+If verification fails, return to Step 2.
+```
+
+**Example (analysis workflow):**
+```markdown
+## Research Synthesis Workflow
+
+Copy this checklist and track your progress:
+
+```
+Research Progress:
+- [ ] Step 1: Read all source documents
+- [ ] Step 2: Identify key themes
+- [ ] Step 3: Cross-reference claims
+- [ ] Step 4: Create structured summary
+- [ ] Step 5: Verify citations
+```
+
+**Step 1: Read all source documents**
+Review each document in the `sources/` directory. Note the main arguments and supporting evidence.
+
+**Step 2: Identify key themes**
+Look for patterns across sources. What themes appear repeatedly? Where do sources agree or disagree?
+
+**Step 3: Cross-reference claims**
+For each major claim, verify it appears in the source material. Note which source supports each point.
+
+**Step 4: Create structured summary**
+Organize findings by theme. Include:
+- Main claim
+- Supporting evidence from sources
+- Conflicting viewpoints (if any)
+
+**Step 5: Verify citations**
+Check that every claim references the correct source document. If citations are incomplete, return to Step 3.
+```
+
+### Feedback Loops
+
+For tasks where quality depends on validation, implement a "validate → fix → repeat" pattern.
+
+**When to use feedback loops:**
+- Output quality is critical
+- Validation can be automated or systematic
+- Errors are common and fixable
+- Multiple iterations improve results
+
+**Pattern:**
+```markdown
+## [Process Name]
+
+1. [Perform initial action]
+2. **Validate immediately**: [validation command or checklist]
+3. If validation fails:
+   - Review the error message/issues
+   - Fix the problems
+   - Run validation again
+4. **Only proceed when validation passes**
+5. [Continue with next steps]
+```
+
+**Example (with validation script):**
+```markdown
+## Document Editing Process
+
+1. Make your edits to `word/document.xml`
+2. **Validate immediately**: `python scripts/validate.py unpacked_dir/`
+3. If validation fails:
+   - Review the error message carefully
+   - Fix the issues in the XML
+   - Run validation again
+4. **Only proceed when validation passes**
+5. Rebuild: `python scripts/pack.py unpacked_dir/ output.docx`
+6. Test the output document
+```
+
+**Example (with reference document):**
+```markdown
+## Content Review Process
+
+1. Draft your content following the guidelines in STYLE_GUIDE.md
+2. Review against the checklist:
+   - Check terminology consistency
+   - Verify examples follow the standard format
+   - Confirm all required sections are present
+3. If issues found:
+   - Note each issue with specific section reference
+   - Revise the content
+   - Review the checklist again
+4. Only proceed when all requirements are met
+5. Finalize and save the document
+```
+
+**Key principle**: Make validation explicit and mandatory before proceeding. Use bold text like **"Only proceed when validation passes"** to emphasize critical checkpoints.
+
+### Template Patterns
+
+Provide templates for output format. Match the level of strictness to your needs.
+
+**Strict templates** - Use when format is critical (APIs, data formats, required structure):
+
+```markdown
+## Report Structure
+
+**ALWAYS use this exact template structure:**
+
+```markdown
+# [Analysis Title]
+
+## Executive Summary
+[One-paragraph overview of key findings]
+
+## Key Findings
+- Finding 1 with supporting data
+- Finding 2 with supporting data
+- Finding 3 with supporting data
+
+## Recommendations
+1. Specific actionable recommendation
+2. Specific actionable recommendation
+```
+
+Do not deviate from this structure.
+```
+
+**Flexible templates** - Use when adaptation is valuable (content varies, context matters):
+
+```markdown
+## Report Structure
+
+Here is a sensible default format, but use your best judgment based on the analysis:
+
+```markdown
+# [Analysis Title]
+
+## Executive Summary
+[Overview]
+
+## Key Findings
+[Adapt sections based on what you discover]
+
+## Recommendations
+[Tailor to the specific context]
+```
+
+Adjust sections as needed for the specific analysis type.
+```
+
+**When to be strict:**
+- API responses or data formats
+- Required compliance/regulatory formats
+- Automated processing depends on structure
+- Consistency is more important than flexibility
+
+**When to be flexible:**
+- Content varies significantly by context
+- Agent judgment improves output
+- Structure should adapt to findings
+- Creativity and adaptation are valuable
 
 ### Use Clear Headings
 Organize with a clear hierarchy:
@@ -436,20 +678,38 @@ Show what *not* to do, with explanations.
 
 1. ❌ Mixing multiple concerns in one skill
    - Makes skills hard to reuse
-   - Creates unnecessary dependencies
-   - Reduces composability
+   - Bloats the skill with unrelated content
+   - Reduces clarity and focus
    
-   ✅ Instead: Create focused, single-purpose skills
+   ✅ Instead: Create focused, single-concern skills with references for variants
 ```
 
-### Link Between Skills
-Create a web of related knowledge.
+### Link Between Skills and References
+Create clear navigation between skills and to reference materials.
 
+**Linking to extensions (rare):**
 ```markdown
-See also:
-- [Related Skill](../related-skill/SKILL.md) - For related topic
-- [Foundation Skill](../foundation/SKILL.md) - For prerequisites
-- [Advanced Skill](../advanced/SKILL.md) - For deeper coverage
+## Extensions
+
+This skill can be enhanced with:
+- **[Security Audit](../pr-review-security-audit/SKILL.md)** - Add comprehensive security-focused review
+```
+
+**Linking to references:**
+```markdown
+## Domain-Specific Patterns
+
+For domain-specific guidance:
+- **Cloud Foundry API**: [references/cloud-foundry-api.md](references/cloud-foundry-api.md)
+- **Kubernetes**: [references/kubernetes.md](references/kubernetes.md)
+```
+
+**Linking to related skills:**
+```markdown
+## Related Skills
+
+- **[Issue Tracking](../issue-tracking-tk/SKILL.md)** - Track findings during review
+- **[Story Writing](../story-writing/SKILL.md)** - Write stories for identified issues
 ```
 
 ## Skill Organization
@@ -476,33 +736,32 @@ my-skill/
 
 ### Naming Conventions
 
-**Pattern**: `[domain]-[specificity]/`
+**Pattern**: `[concern]/`
 
-Use domain-first naming so related skills group together in the filesystem.
+Name skills by the type of work or outcome they address. Domains, tools, and variants go in references/.
 
 **Examples:**
-- `story-writing-generic/` - Foundation skill
-- `story-writing-jira/` - Tool-specific skill
-- `story-writing-cloud-foundry-api/` - System-specific skill
-- `pr-review-core/` - Process foundation skill
-- `pr-review-scope-validation/` - Process extension skill
-- `issue-tracking-tk/` - Tool skill
+- `story-writing/` - Story writing (references for trackers/domains)
+- `pr-review/` - PR review (references for languages/patterns)
+- `deployment/` - Deployment (references for platforms/tools)
+- `skill-writing/` - Creating skills
 
 **Guidelines:**
-- Start with the domain (e.g., `story-writing-`, `pr-review-`, `issue-tracking-`)
-- Add specificity from generic to specific (e.g., `cloud-foundry-api`)
+- Name by the concern/activity/outcome
 - Use lowercase with hyphens, not underscores
 - Be descriptive but concise
 - Directory name must match `name` field in SKILL.md frontmatter
 - Avoid redundant suffixes (e.g., `skill-writing` not `skill-writing-skill`)
 
-### README as Composition Guide
+**Note**: If you have truly different outcomes (like `issue-tracking-tk/` for AI coordination vs `issue-tracking-jira/` for human team tracking), you may need more specific names to distinguish them. But most cases should use a single broad skill with references.
+
+### README as Navigation Guide
 The `README.md` should:
-- List all available skills
-- Explain how to combine them
-- Provide a composition matrix
-- Include quick start guides
-- Show example combinations
+- List all available skills with brief descriptions
+- Explain which skills have extensions
+- Note which skills have extensive references/ directories
+- Provide quick start guides
+- Show how to use skills together (e.g., pr-review + issue-tracking-tk)
 
 ## Agent Collaboration on Skills
 
@@ -545,12 +804,12 @@ When AI agents work on skills, they should collaborate effectively with users on
 - [ ] Easy to scan
 - [ ] Quick reference available (if needed)
 
-### Composability Quality
-- [ ] Prerequisites clearly stated
-- [ ] No duplication with other skills
-- [ ] Integration guidance provided
-- [ ] Links to related skills
-- [ ] Works well in combination
+### Integration Quality
+- [ ] Context clearly stated (for core skills)
+- [ ] Prerequisites clearly stated (for extensions)
+- [ ] References well-organized and linked
+- [ ] Navigation to references provided
+- [ ] Links to related skills (different concerns)
 
 ### Usability Quality
 - [ ] Easy to find (good naming)
@@ -562,7 +821,7 @@ When AI agents work on skills, they should collaborate effectively with users on
 
 **For detailed information:**
 - **[Skill Template](references/TEMPLATE.md)** - Copy-paste template for new skills
-- **[Skill Types](references/SKILL-TYPES.md)** - Foundation, domain, tool, and process skills
+- **[Skill Types](references/SKILL-TYPES.md)** - Core skills, extensions, and references
 - **[Anti-Patterns](references/ANTI-PATTERNS.md)** - Common mistakes and how to avoid them
 
 ## Best Practices
@@ -573,8 +832,8 @@ When AI agents work on skills, they should collaborate effectively with users on
 4. **Link generously** - Connect related skills
 5. **Show examples** - Concrete beats abstract
 6. **Be prescriptive** - Give clear guidance, not just options
-7. **Stay focused** - One skill, one purpose
-8. **Think composition** - Design for combination
+7. **Stay focused** - One skill, one concern
+8. **Use references** - Split variants into references/
 9. **Document mistakes** - Learn from errors
 10. **Maintain quality** - Regular reviews and updates
 
@@ -588,7 +847,7 @@ When AI agents work on skills, they should collaborate effectively with users on
 
 This skill itself follows the principles it describes:
 - **Focused**: Only covers skill creation
-- **Composable**: Can be used with any domain
+- **Extensible**: Uses references/ for detailed guidance
 - **Prescriptive**: Provides clear guidance
 - **Generic**: No project-specific details
 - **Reusable**: Applies to any skill creation
