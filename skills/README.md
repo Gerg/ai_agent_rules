@@ -106,6 +106,21 @@ Conduct end-of-session retrospectives to identify improvements.
 
 ---
 
+### [Command Writing](command-writing/SKILL.md)
+Create effective Cursor commands - simple, reusable workflows triggered with `/` prefix.
+
+**Core content:**
+- Commands vs skills distinction
+- Command design principles (single purpose, clear instructions)
+- File organization (project, user, team commands)
+- Common command patterns (workflow, review, fix, setup)
+- When to convert commands to skills
+- Quality checklist
+
+**Use when**: Creating or updating Cursor commands, reviewing command quality, or when users need help with command design
+
+---
+
 ## How Skills Work
 
 ### Progressive Disclosure
@@ -147,6 +162,11 @@ Only the needed content is loaded, not all 1,771 lines.
 - Use for local, agent-coordinated work
 - Use for postponing work to later sessions
 - Agent loads tool-specific reference (e.g., tk, beans, beads) as needed
+
+**Creating a command:**
+- Enable `command-writing/`
+- Agent will guide you through creating a simple, focused command
+- Agent helps distinguish when to use commands vs skills
 
 ---
 

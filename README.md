@@ -44,6 +44,33 @@ The `skills/` directory contains reusable knowledge documents for specific tasks
 
 See [skills/README.md](skills/README.md) for details.
 
+## Commands
+
+The `commands/` directory contains simple, explicit workflows triggered with `/` in Cursor chat.
+
+See [commands/README.md](commands/README.md) for details.
+
+### Using Commands
+
+Commands are automatically discovered from:
+- `.cursor/commands/` - Project-level
+- `~/.cursor/commands/` - User-level global
+
+**To activate commands:**
+
+```bash
+# Option 1: Symlink entire commands directory (recommended)
+ln -s /path/to/ai_agent_rules/commands ~/.cursor/commands
+
+# Option 2: Symlink individual commands
+ln -s /path/to/ai_agent_rules/commands/code-review.md ~/.cursor/commands/code-review.md
+
+# Option 3: Copy commands to discovery location
+cp -r /path/to/ai_agent_rules/commands/* ~/.cursor/commands/
+```
+
+**Note:** This repository uses `commands/` as a development/documentation location. Commands must be in one of the discovery locations above to be used.
+
 ### Using Skills
 
 Skills are automatically discovered by agents from locations, including:

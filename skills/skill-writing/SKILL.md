@@ -591,6 +591,9 @@ When AI agents work on skills, they should collaborate effectively with users on
 - [ ] Consistent formatting
 - [ ] Easy to scan
 - [ ] Quick reference available (if needed)
+- [ ] No duplicate content between sections
+- [ ] Each concept explained once
+- [ ] Cross-references used instead of repetition
 
 ### Integration Quality
 - [ ] Context clearly stated (for core skills)
