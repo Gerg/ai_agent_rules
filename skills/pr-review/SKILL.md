@@ -46,15 +46,63 @@ Create a main review tracking item with:
 
 See [Agent Issue Tracking](../agent-issue-tracking/SKILL.md) for agent-based tracking, or use your project's issue tracking system.
 
-### 2. Understand Scope
-- Read all changed files completely
+### 2. Verify Review Scope
+
+**Confirm scope when ambiguous or surprising**
+
+**When to verify:**
+- User request is vague ("review this PR", "review current branch")
+- Scope is surprisingly large (many commits, hundreds of files)
+- Multiple commits with unclear boundaries
+- Unclear what changed vs what already exists
+
+**When verification is unnecessary:**
+- User explicitly specifies single commit ("review commit abc123")
+- User specifies exact commit range ("review commits abc123..def456")
+- Scope is clear and small (1-2 commits, few files)
+
+**Verification process:**
+
+1. **Check what's in scope:**
+   ```bash
+   # List commits
+   git log --oneline [base-branch]..HEAD
+   
+   # Show size of changes
+   git show --stat [commit-sha]
+   ```
+
+2. **If scope is ambiguous or surprising, confirm with user:**
+   
+   Example (surprising size):
+   > "I see 47 commits changing 203 files. Should I review all of these, or specific commits?"
+   
+   Example (unclear request):
+   > "I see 2 commits on this branch. Should I review both, or just the latest?"
+
+3. **Document scope in review tracking:**
+   Record commits, base branch, file count, and change size
+
+4. **Use appropriate git commands:**
+   ```bash
+   # For specific commits
+   git show [commit-sha]
+   
+   # For commit range
+   git diff [first-commit]^..[last-commit]
+   
+   # Avoid: git diff [base]...[head] (three dots - shows all branch differences)
+   ```
+
+### 3. Understand Scope
+- Read all changed files completely (from verified commits only)
 - Identify the feature/fix being implemented
 - Review associated tickets/requirements
 - Note any external dependencies or patterns
 
 **For detailed scope validation:** See [references/scope-validation.md](references/scope-validation.md) to validate implementation against acceptance criteria.
 
-### 3. Create Review Categories
+### 4. Create Review Categories
 Create separate tracking items for each concern area:
 - One item per review category
 - Link to main review item
@@ -76,7 +124,7 @@ Create separate tracking items for each concern area:
 
 See [Agent Issue Tracking](../agent-issue-tracking/SKILL.md) for implementation details on creating and linking tickets.
 
-### 4. Validate Findings Empirically
+### 5. Validate Findings Empirically
 **CRITICAL: Validate concerns before creating tickets**
 
 **For suspected bugs:**
@@ -89,7 +137,7 @@ Search codebase for similar patterns, compare implementations, evaluate tradeoff
 - [references/test-validation.md](references/test-validation.md) - Test-driven bug validation
 - [references/consistency-patterns.md](references/consistency-patterns.md) - Pattern comparison and architectural alignment
 
-### 5. Document Findings
+### 6. Document Findings
 **Create separate tickets for each finding** - don't bundle multiple issues into one ticket.
 
 **Why separate tickets:**
@@ -113,18 +161,18 @@ Search codebase for similar patterns, compare implementations, evaluate tradeoff
 - P3: Nice to have, refactoring, minor improvements
 - P4: Polish, documentation tweaks
 
-### 6. Add Context to Items
+### 7. Add Context to Items
 For each finding, add structured notes:
 - **Context**: Why this matters
 - **Evidence**: Code references, test results
 - **Recommendation**: How to fix
 
-### 7. Close Review Categories
+### 8. Close Review Categories
 As you complete each review category:
 - Add summary of findings
 - Mark as complete
 
-### 8. Consolidate Findings
+### 9. Consolidate Findings
 
 **CRITICAL: Before generating summary, review all tickets for duplicates**
 
@@ -139,7 +187,7 @@ Round-based reviews can create duplicate tickets describing the same underlying 
 
 **For detailed consolidation guidance:** See [references/deduplicating-findings.md](references/deduplicating-findings.md)
 
-### 9. Generate Summary
+### 10. Generate Summary
 Create a summary item containing:
 - Count of issues by status (fixed/invalid/outstanding)
 - Count after deduplication
@@ -150,6 +198,24 @@ Create a summary item containing:
 - Overall recommendation (merge/fix-first/needs-discussion)
 
 ## Anti-Patterns to Avoid
+
+### ❌ Reviewing ambiguous or surprising scope without verification
+```
+BAD: User says "review current branch", you immediately start reviewing
+     without checking what's in scope
+     - Could be 1 commit or 100 commits
+     - Could be 5 files or 500 files
+     - Might review existing code as if it's new
+     Result: Review wrong code, waste time, irrelevant findings
+
+GOOD: Check scope, verify if surprising or ambiguous
+     1. List commits: git log --oneline [base]..HEAD
+     2. If surprising (many commits) or ambiguous (unclear request):
+        Confirm with user: "I see 47 commits changing 203 files. Review all?"
+     3. If clear and small (1-2 commits explicitly requested):
+        Proceed without verification
+     4. Document scope in tracking
+```
 
 ### ❌ Assuming bugs without testing
 ```
@@ -181,6 +247,8 @@ GOOD: One root cause ticket with notes about related impacts
 ```
 
 ## Success Criteria
+- Review scope verified when ambiguous or surprising
+- Correct commits/range documented in review tracking
 - All review categories completed
 - Each finding validated (especially bugs)
 - Duplicates identified and consolidated
