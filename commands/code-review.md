@@ -8,6 +8,8 @@ Enable these skills:
 - `pr-review` - Core review process and validation techniques
 - `agent-issue-tracking` - Track findings and organize work
 
+**Critical**: Only continue if you have access to these skills.
+
 ## Instructions
 
 - Schedule and perform multiple rounds of focused rounds using the `pr-review` skill. 
