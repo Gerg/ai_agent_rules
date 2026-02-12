@@ -14,6 +14,8 @@ This skill provides universal principles for agent-based issue tracking. For too
 **Tool-specific references:**
 - **tk**: See [references/tk.md](references/tk.md) for tk utility commands and syntax
 
+Default to using tk, if no other tool is specified.
+
 **Important**: Use only ONE tracking tool per session/project. If tk is being used, ignore other tracking systems (like Cursor's built-in TODOs, GitHub Issues for local work, etc.). Mixing tools creates confusion and duplicate tracking overhead.
 
 ## Core Concepts
