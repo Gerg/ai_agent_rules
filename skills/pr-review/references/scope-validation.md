@@ -2,6 +2,20 @@
 
 Ensure PR implementation aligns with ticket requirements and acceptance criteria.
 
+## Table of Contents
+
+- [Process](#process)
+  - [Extract Ticket Requirements](#1-extract-ticket-requirements)
+  - [Map Implementation to Requirements](#2-map-implementation-to-requirements)
+  - [Identify Scope Boundaries](#3-identify-scope-boundaries)
+  - [Categorize Implementation Completeness](#4-categorize-implementation-completeness)
+  - [Document Scope Assessment](#5-document-scope-assessment)
+  - [Clarify with Stakeholders](#6-clarify-with-stakeholders)
+- [Examples](#examples)
+- [Anti-Patterns](#anti-patterns)
+- [Success Criteria](#success-criteria)
+- [Integration with Core Review](#integration-with-core-review)
+
 ## Process
 
 ### 1. Extract Ticket Requirements

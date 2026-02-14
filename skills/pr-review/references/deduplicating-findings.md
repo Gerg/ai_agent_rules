@@ -2,6 +2,21 @@
 
 Identify and consolidate duplicate findings before finalizing review.
 
+## Table of Contents
+
+- [Why Deduplication Matters](#why-deduplication-matters)
+- [Process](#process)
+  - [List All Open Tickets](#1-list-all-open-tickets)
+  - [Group by Code Location](#2-group-by-code-location)
+  - [Identify Root Cause Relationships](#3-identify-root-cause-relationships)
+  - [Consolidate Duplicates](#4-consolidate-duplicates)
+  - [Keep Separate When](#5-keep-separate-when)
+- [Common Duplicate Patterns](#common-duplicate-patterns)
+- [Examples](#examples)
+- [Anti-Patterns](#anti-patterns)
+- [Success Criteria](#success-criteria)
+- [Integration with Core Review](#integration-with-core-review)
+
 ## Why Deduplication Matters
 
 Round-based reviews naturally examine code from different angles, which can create duplicate tickets describing the same underlying issue. Consolidating before finalizing prevents:

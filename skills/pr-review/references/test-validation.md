@@ -4,6 +4,22 @@ Validate suspected bugs and edge cases empirically through tests before creating
 
 **Note**: This guide includes examples in multiple languages (Ruby/RSpec, Go, Python/pytest, JavaScript/Jest) to illustrate universal patterns. Adapt the concepts to your specific testing framework.
 
+## Table of Contents
+
+- [Process](#process)
+  - [Identify the Suspected Issue](#1-identify-the-suspected-issue)
+  - [Locate Relevant Test File](#2-locate-relevant-test-file)
+  - [Write a Failing Test](#3-write-a-failing-test)
+  - [Run the Test](#4-run-the-test)
+  - [Interpret Results](#5-interpret-results)
+  - [Consider Keeping Test](#6-consider-keeping-test)
+- [Examples](#examples)
+- [Decision Tree](#decision-tree)
+- [Benefits](#benefits)
+- [Anti-Patterns](#anti-patterns)
+- [Integration with Core Review](#integration-with-core-review)
+- [Success Criteria](#success-criteria)
+
 ## Process
 
 ### 1. Identify the Suspected Issue

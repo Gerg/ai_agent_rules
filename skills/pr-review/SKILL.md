@@ -9,19 +9,22 @@ Conduct thorough, systematic code reviews using test-driven validation and issue
 
 ## Using This Skill
 
-This skill provides the core PR review process. Load references as needed:
+This skill provides the core PR review process. Load references when you need detailed guidance:
 
-**When validating scope:**
-- [references/scope-validation.md](references/scope-validation.md) - Validate PRs against ticket acceptance criteria
+**When validating against acceptance criteria:**
+- [references/scope-validation.md](references/scope-validation.md) - Map implementation to ticket requirements
 
-**When checking consistency:**
-- [references/consistency-patterns.md](references/consistency-patterns.md) - Verify code follows existing patterns
+**When checking code consistency:**
+- [references/consistency-patterns.md](references/consistency-patterns.md) - Compare with existing patterns
 
 **When validating suspected bugs:**
-- [references/test-validation.md](references/test-validation.md) - Empirically validate issues through tests
+- [references/test-validation.md](references/test-validation.md) - Write tests to confirm bugs empirically
 
-**When consolidating findings:**
-- [references/deduplicating-findings.md](references/deduplicating-findings.md) - Identify and consolidate duplicate tickets
+**When validating user workflows:**
+- [references/end-to-end-validation.md](references/end-to-end-validation.md) - Verify features work end-to-end
+
+**When consolidating review findings:**
+- [references/deduplicating-findings.md](references/deduplicating-findings.md) - Identify and merge duplicate tickets
 
 ## Prerequisites
 - Issue tracking system available (see: ../agent-issue-tracking/SKILL.md for agent-based tracking)
@@ -130,12 +133,16 @@ See [Agent Issue Tracking](../agent-issue-tracking/SKILL.md) for implementation 
 **For suspected bugs:**
 Write a test first. If test passes → not a bug. If test fails → real bug, create ticket with test.
 
+**For new features or significant changes:**
+Think through the complete user workflow, not just individual operations. Ask: "How would a user actually use this end-to-end?"
+
 **For consistency/duplication/architectural concerns:**
 Search codebase for similar patterns, compare implementations, evaluate tradeoffs with concrete examples.
 
 **See references for detailed validation:**
 - [references/test-validation.md](references/test-validation.md) - Test-driven bug validation
 - [references/consistency-patterns.md](references/consistency-patterns.md) - Pattern comparison and architectural alignment
+- [references/end-to-end-validation.md](references/end-to-end-validation.md) - User workflow validation
 
 ### 6. Document Findings
 **Create separate tickets for each finding** - don't bundle multiple issues into one ticket.
@@ -199,6 +206,21 @@ Create a summary item containing:
 
 ## Anti-Patterns to Avoid
 
+### ❌ Validating operations in isolation without considering user workflows
+```
+BAD: Feature creates data successfully, tests pass
+     - Didn't verify how users access the created data
+     - Didn't think through complete workflow
+     - Assumed "operation succeeds" means "feature works"
+     Result: Feature appears functional but is actually unusable
+
+GOOD: Think through complete user workflow
+     - How does user trigger this operation?
+     - How does user access the result?
+     - What's the end-to-end flow?
+     - Does the feature actually work from user's perspective?
+```
+
 ### ❌ Reviewing ambiguous or surprising scope without verification
 ```
 BAD: User says "review current branch", you immediately start reviewing
@@ -251,6 +273,7 @@ GOOD: One root cause ticket with notes about related impacts
 - Correct commits/range documented in review tracking
 - All review categories completed
 - Each finding validated (especially bugs)
+- User workflows considered for new features
 - Duplicates identified and consolidated
 - Root cause relationships documented
 - Clear priorities assigned
