@@ -249,6 +249,37 @@ my-skill/
 
 ---
 
+## Async Skill Improvement Pattern
+
+Skills can be improved through async agent collaboration:
+
+1. **Agent A** (working on task) generates feedback document describing skill gaps or improvements
+2. **Agent B** (skill writer) incorporates feedback using `skill-writing/` skill
+
+**Benefits:**
+- **Context management** - Feedback document captures learnings without bloating conversation
+- **Async processing** - Improvements happen in separate session, not during task
+- **Focused expertise** - Task agent focuses on task, skill agent focuses on skill quality
+- **Batch improvements** - Multiple feedback items addressed together
+- **Preserves domain-independence** - Skill agent extracts universal principles from specific incidents
+
+**Example workflow:**
+```
+Session 1 (PR review):
+- Agent encounters skill gap during review
+- Generates: pr-review-feedback.md with specific incident details
+
+Session 2 (skill improvement):
+- Enable skill-writing/
+- Agent reads feedback, extracts universal principles
+- Updates skill with domain-independent guidance
+- Adds reference files for detailed patterns
+```
+
+This pattern keeps skills current while maintaining quality and generality.
+
+---
+
 ## Contributing
 
 When adding or updating skills:
@@ -256,3 +287,4 @@ When adding or updating skills:
 - Use progressive disclosure for variants
 - Update this README with new skills or references
 - Test with real usage scenarios
+- Consider async feedback pattern for improvements from real usage
