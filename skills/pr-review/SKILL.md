@@ -30,9 +30,14 @@ This skill provides the core PR review process. Load references when you need de
 - [references/code-quality.md](references/code-quality.md) - Check comments, naming, and redundancy
 
 ## Prerequisites
-- Issue tracking system available (see: ../agent-issue-tracking/SKILL.md for agent-based tracking)
-- Test environment accessible
 - Access to codebase and related documentation
+- Test environment accessible (if validating bugs empirically)
+- Issue tracking system available (see: ../agent-issue-tracking/SKILL.md for agent-based tracking)
+
+**When reviewing against requirements:**
+- Requirements must be accessible before starting review
+- If requirements are referenced but unavailable (auth failure, network error, missing ticket), stop and notify user
+- Don't proceed with partial review based on code inference or similar patterns
 
 ## Process
 
@@ -103,8 +108,10 @@ See [Agent Issue Tracking](../agent-issue-tracking/SKILL.md) for agent-based tra
 ### 3. Understand Scope
 - Read all changed files completely (from verified commits only)
 - Identify the feature/fix being implemented
-- Review associated tickets/requirements
+- Fetch associated tickets/requirements if referenced
 - Note any external dependencies or patterns
+
+**Validate against requirements, not code patterns** - When requirements exist, validate implementation matches them. Don't infer expected behavior from code consistency alone - existing code may have the same bug.
 
 **For detailed scope validation:** See [references/scope-validation.md](references/scope-validation.md) to validate implementation against acceptance criteria.
 
@@ -275,6 +282,20 @@ GOOD: Create separate tickets for each concern
 BAD: Three tickets for symptoms of one root cause
 
 GOOD: One root cause ticket with notes about related impacts
+```
+
+### ❌ Validating against code patterns instead of requirements
+```
+BAD: Code follows same pattern as existing code
+     - Checked consistency with similar components
+     - Concluded: consistent, therefore correct
+     Result: Missed that requirements specify different behavior
+
+GOOD: When requirements exist, validate against them
+     - Check what requirements actually specify
+     - Verify implementation matches requirements
+     - Note: a wrong pattern repeated consistently is still wrong
+     - Consistency is necessary but not sufficient
 ```
 
 ## Success Criteria

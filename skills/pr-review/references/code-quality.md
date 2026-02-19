@@ -76,6 +76,8 @@ Check project documentation for comment philosophy:
 - Are there specific comment requirements (public APIs, complex algorithms)?
 - What's the balance between comments and self-documenting code?
 
+**Important:** Finding the same bad comment pattern elsewhere in the codebase does not make it acceptable. Consistency with a bad pattern is still a bad pattern - flag it regardless.
+
 ## Naming Clarity
 
 ### Principle

@@ -7,10 +7,11 @@ Ensure PR implementation aligns with ticket requirements and acceptance criteria
 - [Process](#process)
   - [Extract Ticket Requirements](#1-extract-ticket-requirements)
   - [Map Implementation to Requirements](#2-map-implementation-to-requirements)
-  - [Identify Scope Boundaries](#3-identify-scope-boundaries)
-  - [Categorize Implementation Completeness](#4-categorize-implementation-completeness)
-  - [Document Scope Assessment](#5-document-scope-assessment)
-  - [Clarify with Stakeholders](#6-clarify-with-stakeholders)
+  - [Validate Against Requirements, Not Code Patterns](#3-validate-against-requirements-not-code-patterns)
+  - [Identify Scope Boundaries](#4-identify-scope-boundaries)
+  - [Categorize Implementation Completeness](#5-categorize-implementation-completeness)
+  - [Document Scope Assessment](#6-document-scope-assessment)
+  - [Clarify with Stakeholders](#7-clarify-with-stakeholders)
 - [Examples](#examples)
 - [Anti-Patterns](#anti-patterns)
 - [Success Criteria](#success-criteria)
@@ -36,6 +37,10 @@ From the ticket, identify and document:
 
 ### 2. Map Implementation to Requirements
 
+**Principle: Validate explicitly, don't infer from code patterns**
+
+When requirements specify behavior, validate the implementation matches those requirements. Don't assume correctness based on consistency with existing code - existing code may have the same bug.
+
 Create a checklist mapping each acceptance criterion to implementation:
 
 ```markdown
@@ -57,7 +62,29 @@ ACCEPTANCE CRITERIA CHECKLIST:
    - Reason: [why no longer relevant]
 ```
 
-### 3. Identify Scope Boundaries
+### 3. Validate Against Requirements, Not Code Patterns
+
+Validate all implementation explicitly against requirements. Don't infer expected behavior from code consistency.
+
+**Don't rely on:**
+- Code consistency alone - existing code may have the same bug
+- Pattern matching - wrong patterns can be repeated
+- Inference from similar code - requirements may differ
+
+**Do verify:**
+- What requirements actually specify for each scenario
+- Implementation produces the specified behavior
+- Edge cases and special states are handled per requirements
+
+**This applies to all behavior, including:**
+- Authorization/access control - Who can access what?
+- Data visibility - What data is returned to different users?
+- Error handling - What errors are returned in what scenarios?
+- State transitions - What states are valid and when?
+- Business logic - What operations are performed?
+- Validation rules - What inputs are accepted/rejected?
+
+### 4. Identify Scope Boundaries
 
 **Questions to ask:**
 
@@ -79,7 +106,7 @@ ACCEPTANCE CRITERIA CHECKLIST:
 - Does it fully complete that subtask?
 - Are there dependencies on other subtasks?
 
-### 4. Categorize Implementation Completeness
+### 5. Categorize Implementation Completeness
 
 Determine which category the PR falls into:
 
@@ -108,7 +135,7 @@ Determine which category the PR falls into:
 - Ticket needs updating to match implementation
 - Requires stakeholder alignment
 
-### 5. Document Scope Assessment
+### 6. Document Scope Assessment
 
 Create clear summary for PR review:
 
@@ -146,7 +173,7 @@ Create clear summary for PR review:
 - 📝 Update ticket description to reflect actual scope
 ```
 
-### 6. Clarify with Stakeholders
+### 7. Clarify with Stakeholders
 
 If scope is unclear, ask specific questions:
 
