@@ -26,6 +26,9 @@ This skill provides the core PR review process. Load references when you need de
 **When consolidating review findings:**
 - [references/deduplicating-findings.md](references/deduplicating-findings.md) - Identify and merge duplicate tickets
 
+**When evaluating code quality:**
+- [references/code-quality.md](references/code-quality.md) - Check comments, naming, and redundancy
+
 ## Prerequisites
 - Issue tracking system available (see: ../agent-issue-tracking/SKILL.md for agent-based tracking)
 - Test environment accessible
@@ -139,10 +142,16 @@ Think through the complete user workflow, not just individual operations. Ask: "
 **For consistency/duplication/architectural concerns:**
 Search codebase for similar patterns, compare implementations, evaluate tradeoffs with concrete examples.
 
+**For code quality concerns:**
+- **Comments**: Should explain "why" not "what" - remove comments that just restate code
+- **Naming**: Should follow existing conventions in the codebase
+- **Redundancy**: Check for multiple mechanisms doing the same thing (global vs local)
+
 **See references for detailed validation:**
 - [references/test-validation.md](references/test-validation.md) - Test-driven bug validation
 - [references/consistency-patterns.md](references/consistency-patterns.md) - Pattern comparison and architectural alignment
 - [references/end-to-end-validation.md](references/end-to-end-validation.md) - User workflow validation
+- [references/code-quality.md](references/code-quality.md) - Comment quality, naming, and redundancy
 
 ### 6. Document Findings
 **Create separate tickets for each finding** - don't bundle multiple issues into one ticket.
