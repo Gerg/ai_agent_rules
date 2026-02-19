@@ -9,7 +9,7 @@
 ## Overview
 
 These are my general instructions/rules for AI/LLM coding agents. At time of
-writing I primarily use these with Claude 4.5 Sonnet.
+writing I primarily use these with Claude 4.6 Sonnet & Opus.
 
 ## AGENTS.md
 
