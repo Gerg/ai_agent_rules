@@ -45,11 +45,13 @@
 - Tests should always fail if the corresponding implementation code is removed.
 - When a test fails, understand why it is failing before changing any code.
 - Be extra careful when modifying both test and implementation code at the same time.
+- Tests should be concise and focused. Avoid excessive test data and assertions.
+- Avoid adding logic to production code that does not have "test pressure".
 
 ## Code Style
-- Code should always be correctly formatted and pass linting.
+- Code should always be correctly formatted and pass automated linting/style/formatting checks.
 - Code should be easy to read and understand, even by a user unfamiliar with the codebase.
-- Avoid code comments unless absolutely necessary; Code should be able to be understood without comments.
+- Avoid code comments unless absolutely necessary; Code & tests should be self-documenting without comments.
 - Tests should be BDD-style and easy for a user to understand.
 - Tests should always be deterministic.
 - New code should match the existing style of a codebase, whenever possible.
@@ -57,6 +59,9 @@
 - Avoid using regular expressions, unless there is not a better option.
 - Avoid clever patterns like meta-programming or unnecessary indirection.
 - Error messages should be explicit, informative, and luxurious.
+- Avoid null guards and null-safe operators for internal data when null is not a possible value, to avoid confusion.
+- Prefer named intermediate variables over one-liners, to increase legibility.
+- Prefer lazy evaluation, process data only when needed.
 
 ## Architecture
 - Evaluate and follow existing architectural patterns, whenever possible.
