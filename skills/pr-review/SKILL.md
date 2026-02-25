@@ -131,7 +131,7 @@ Create separate tracking items for each concern area:
 - Correctness (against requirements)
 - Duplication (with existing functionality)
 - Edge cases
-- Test coverage
+- Test coverage and test pressure
 - Documentation
 - Security/validation
 
@@ -153,6 +153,7 @@ Search codebase for similar patterns, compare implementations, evaluate tradeoff
 - **Comments**: Should explain "why" not "what" - remove comments that just restate code
 - **Naming**: Should follow existing conventions in the codebase
 - **Redundancy**: Check for multiple mechanisms doing the same thing (global vs local)
+- **Test pressure**: Verify implementation logic is driven by test requirements, not speculative
 
 **See references for detailed validation:**
 - [references/test-validation.md](references/test-validation.md) - Test-driven bug validation

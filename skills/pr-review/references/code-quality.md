@@ -7,6 +7,7 @@ Evaluate code quality beyond functional correctness: clarity, maintainability, a
 - [Comment Quality](#comment-quality)
 - [Naming Clarity](#naming-clarity)
 - [Redundancy Detection](#redundancy-detection)
+- [Test Pressure](#test-pressure)
 - [Project Conventions](#project-conventions)
 - [Success Criteria](#success-criteria)
 
@@ -230,6 +231,173 @@ Avoid multiple mechanisms doing the same thing. Prefer established patterns over
 - Or do they rely on single mechanism?
 - What's the established pattern?
 
+## Test Pressure
+
+### Principle
+
+Every piece of implementation logic should be driven by test requirements, not speculation about future needs. Code without test pressure is likely over-engineered.
+
+### What Is Test Pressure?
+
+**Test pressure** is when tests require specific implementation logic to pass. If you can remove logic without breaking tests, that logic lacks test pressure.
+
+**Benefits:**
+- **Regression safety** - Tests verify the logic actually works
+- **Refactoring confidence** - Can change implementation knowing tests will catch breaks
+- **Avoid over-engineering** - Only implement what's needed
+- **Keep code simple** - No speculative complexity
+
+### Red Flags
+
+**Logic without corresponding tests:**
+- Conditional branches not exercised by tests
+- Error handling paths not tested
+- Edge case handling without edge case tests
+- Configuration options not tested
+
+**Speculative features:**
+- "We might need this later"
+- "This makes it more flexible"
+- "This handles a case that could happen"
+- Without tests demonstrating the need
+
+**Complex logic without test justification:**
+- Multiple conditional branches
+- Nested logic
+- Special case handling
+- But tests only cover happy path
+
+### Questions to Ask
+
+- Is there a test that requires this logic?
+- What breaks if I remove this code?
+- Is this handling a real scenario or a hypothetical one?
+- Do tests exercise all branches/paths in this logic?
+- Is this complexity driven by test requirements?
+
+### Validation Process
+
+**1. Identify implementation logic:**
+- Conditionals (if/else, switch/case)
+- Error handling (try/catch, error checks)
+- Edge case handling
+- Configuration-based behavior
+
+**2. Find corresponding tests:**
+- Is there a test that exercises this branch?
+- Is there a test that requires this error handling?
+- Is there a test for this edge case?
+- Is there a test for each configuration option?
+
+**3. Check if logic is justified:**
+- Remove the logic mentally - what test would fail?
+- If no test would fail → logic lacks test pressure
+- If test would fail → logic has test pressure
+
+**4. Evaluate necessity:**
+- Is this logic required by current tests?
+- Or is it speculative "just in case" code?
+- If speculative, should it be removed or should tests be added?
+
+### Examples
+
+**Example 1: Logic with test pressure ✅**
+
+```
+Implementation:
+  if input.empty?
+    raise ValidationError, "Input cannot be empty"
+  end
+  
+Test:
+  it 'rejects empty input' do
+    expect { process('') }.to raise_error(ValidationError, /cannot be empty/)
+  end
+```
+
+**Test pressure:** Test requires the empty check. Removing it breaks the test.
+
+---
+
+**Example 2: Logic without test pressure ❌**
+
+```
+Implementation:
+  if input.empty?
+    raise ValidationError, "Input cannot be empty"
+  elsif input.length > 1000
+    raise ValidationError, "Input too long"
+  end
+  
+Tests:
+  it 'processes valid input' do
+    expect(process('valid')).to eq(result)
+  end
+```
+
+**No test pressure:** No test exercises the empty or length checks. Could remove both without breaking tests.
+
+---
+
+**Example 3: Speculative complexity ❌**
+
+```
+Implementation:
+  def process(input, options = {})
+    format = options[:format] || 'json'
+    timeout = options[:timeout] || 30
+    retry_count = options[:retry_count] || 3
+    
+    case format
+    when 'json' then process_json(input)
+    when 'xml' then process_xml(input)
+    when 'yaml' then process_yaml(input)
+    end
+  end
+  
+Tests:
+  it 'processes json input' do
+    expect(process('{"key": "value"}')).to eq(result)
+  end
+```
+
+**No test pressure:** Only JSON format is tested. XML, YAML, timeout, and retry options have no test pressure - likely over-engineered.
+
+### When Speculative Code Is Acceptable
+
+**Rare cases where logic without immediate test pressure is justified:**
+- Framework requirements (must implement interface method)
+- Defensive programming for external data (validate untrusted input)
+- Backward compatibility (maintain old behavior)
+- Migration paths (support both old and new)
+
+**But even then:**
+- Document why it's needed
+- Consider adding tests for completeness
+- Mark as intentional (comment or ticket)
+
+### Integration with Test Coverage
+
+**Test coverage** measures what code is executed by tests.
+**Test pressure** measures what code is required by tests.
+
+**Difference:**
+```
+High coverage, low pressure:
+- Tests execute the code
+- But tests would pass if code was removed
+- Code is not justified by tests
+
+High coverage, high pressure:
+- Tests execute the code
+- Tests would fail if code was removed
+- Code is justified by tests
+```
+
+**Both matter:**
+- Coverage ensures tests exercise code
+- Pressure ensures code is necessary
+
 ## Project Conventions
 
 ### Principle
@@ -296,8 +464,9 @@ Understand project-specific patterns before reviewing. Don't assume conventions 
 ## Success Criteria
 
 - [ ] Comments explain "why" not "what"
-- [ ] Names reflect domain concepts, not implementation
+- [ ] Names follow existing codebase conventions
 - [ ] No unnecessary redundancy
+- [ ] Implementation logic has test pressure (justified by tests)
 - [ ] Follows project conventions
 - [ ] Consistent with existing codebase patterns
 - [ ] Code is self-explanatory where possible
