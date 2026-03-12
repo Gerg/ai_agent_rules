@@ -169,6 +169,11 @@ Avoid multiple mechanisms doing the same thing. Prefer established patterns over
 
 ### Common Redundancies
 
+**Dead code:**
+- Commented-out blocks left behind after refactoring
+- Unused imports, variables, or methods
+- Abandoned experiments or feature flags that never shipped
+
 **ID/Key generation:**
 - Global mechanism (framework plugin, base class)
 - Local mechanism (model hook, initializer)

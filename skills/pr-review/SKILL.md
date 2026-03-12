@@ -131,6 +131,7 @@ Create separate tracking items for each concern area:
 - Correctness (against requirements)
 - Duplication (with existing functionality)
 - Edge cases
+- Performance (N+1 queries, memory leaks, unbounded growth)
 - Test coverage and test pressure
 - Documentation
 - Security/validation
@@ -283,6 +284,20 @@ GOOD: Create separate tickets for each concern
 BAD: Three tickets for symptoms of one root cause
 
 GOOD: One root cause ticket with notes about related impacts
+```
+
+### ❌ Reviewing implementation correctness without evaluating design
+```
+BAD: New component works correctly — SSL configured, errors handled, tests pass
+     - Didn't ask whether the approach itself is right
+     - Didn't check for leaky abstractions or misplaced responsibilities
+     - Concluded: correct, therefore acceptable
+     Result: Missed design problems that will create maintenance burden
+
+GOOD: Ask design questions before (or alongside) correctness questions
+     - Are responsibilities in the right place?
+     - Does this create confusing contracts for callers?
+     - Would this confuse a future reader even though it works?
 ```
 
 ### ❌ Validating against code patterns instead of requirements
