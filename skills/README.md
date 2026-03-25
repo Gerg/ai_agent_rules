@@ -1,6 +1,6 @@
 # AI Agent Skills
 
-A collection of skills for AI agents using progressive disclosure, covering story writing, code review, issue tracking, and skill development.
+A collection of skills for AI agents using progressive disclosure, covering story writing, code review, documentation writing, issue tracking, and skill development.
 
 > **Note:** These skills were created with AI assistance and are provided as starting points. Review and adapt them to your specific context, team conventions, and project requirements. Examples use generic patterns and may need customization for your codebase.
 
@@ -37,14 +37,18 @@ Conduct systematic, thorough code reviews with test-driven validation.
 **Core content:**
 - Systematic review process
 - Issue tracking and categorization
-- Duplication checking
+- Scope verification
 - Test-driven validation overview
+- Duplication checking
 - Summary generation
 
 **References (loaded as needed):**
 - `references/scope-validation.md` - Validate PR against acceptance criteria
 - `references/consistency-patterns.md` - Check code follows existing patterns
 - `references/test-validation.md` - Empirically validate bugs with tests
+- `references/end-to-end-validation.md` - Verify features work end-to-end
+- `references/code-quality.md` - Check comments, naming, and redundancy
+- `references/deduplicating-findings.md` - Identify and merge duplicate tickets
 
 **Use when**: Reviewing pull requests or conducting code reviews
 
@@ -121,6 +125,22 @@ Create effective Cursor commands - simple, reusable workflows triggered with `/`
 
 ---
 
+### [Documentation Writing](doc-writing/SKILL.md)
+Write user-facing technical documentation for software features.
+
+**Core content:**
+- Documentation workflow (scope, research, planning, writing, review)
+- Accuracy requirements
+- Style guidance (prose patterns, terminology, examples)
+- Research techniques for finding implementation details
+
+**References (loaded as needed):**
+- `references/cloud-foundry.md` - Cloud Foundry documentation conventions
+
+**Use when**: Writing new documentation, updating existing docs, or auditing docs for accuracy and style
+
+---
+
 ## How Skills Work
 
 ### Progressive Disclosure
@@ -136,7 +156,7 @@ This keeps context usage efficient. For example, when writing a Jira story about
 2. User mentions Jira → Agent loads `references/jira-markup.md` (457 lines)
 3. User mentions CAPI → Agent loads `references/cloud-foundry-api.md` (529 lines)
 
-Only the needed content is loaded, not all 1,771 lines.
+Only the needed content is loaded, not all 1,307 lines.
 
 ### When to Use Which Skill
 
@@ -168,6 +188,11 @@ Only the needed content is loaded, not all 1,771 lines.
 - Agent will guide you through creating a simple, focused command
 - Agent helps distinguish when to use commands vs skills
 
+**Writing documentation:**
+- Enable `doc-writing/`
+- Agent will research implementation, plan structure, and write accurate docs
+- Agent loads platform-specific references as needed (e.g., Cloud Foundry)
+
 ---
 
 ## Quick Start
@@ -189,9 +214,12 @@ Only the needed content is loaded, not all 1,771 lines.
    - `pr-review/SKILL.md` (core process)
    - `agent-issue-tracking/SKILL.md` (tracking)
    - `agent-issue-tracking/references/tk.md` (tk commands)
-   - `pr-review/references/test-validation.md` (if bugs suspected)
-   - `pr-review/references/consistency-patterns.md` (if new features added)
-   - `pr-review/references/scope-validation.md` (if detailed AC exists)
+   - `pr-review/references/scope-validation.md` (if validating against AC)
+   - `pr-review/references/consistency-patterns.md` (if checking patterns)
+   - `pr-review/references/test-validation.md` (if validating bugs)
+   - `pr-review/references/end-to-end-validation.md` (if validating workflows)
+   - `pr-review/references/code-quality.md` (if evaluating quality)
+   - `pr-review/references/deduplicating-findings.md` (when consolidating)
 
 ### Creating a New Skill
 
@@ -202,6 +230,14 @@ Only the needed content is loaded, not all 1,771 lines.
    - `references/TEMPLATE.md` (template)
    - `references/CREATION-PROCESS.md` (step-by-step guide)
    - Other references as needed
+
+### Writing Cloud Foundry Documentation
+
+1. Enable `doc-writing/` skill
+2. Ask agent to document a feature
+3. Agent loads:
+   - `doc-writing/SKILL.md` (universal principles)
+   - `references/cloud-foundry.md` (CF conventions)
 
 ---
 
@@ -232,6 +268,10 @@ my-skill/
 **Language-specific skills:**
 - `pr-review/references/python-patterns.md` - Add Python review patterns
 - `pr-review/references/go-patterns.md` - Add Go review patterns
+
+**Platform-specific documentation:**
+- `doc-writing/references/kubernetes.md` - Add K8s documentation conventions
+- `doc-writing/references/aws.md` - Add AWS documentation conventions
 
 **Note**: Each reference file should focus on one tracker/domain/framework and be loaded only when relevant.
 
