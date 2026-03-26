@@ -35,13 +35,13 @@ that prevents it from following symlinks for skills.
 
 ```bash
 # Option 1: Symlink entire skills directory (recommended for development)
-ln -s /path/to/ai_agent_rules/skills ~/.cursor/skills
+ln -s /path/to/ai_agent_skills/skills ~/.cursor/skills
 
 # Option 2: Symlink individual skills
-ln -s /path/to/ai_agent_rules/skills/story-writing ~/.cursor/skills/story-writing
+ln -s /path/to/ai_agent_skills/skills/story-writing ~/.cursor/skills/story-writing
 
 # Option 3: Copy skills to discovery location
-cp -r /path/to/ai_agent_rules/skills/* ~/.cursor/skills/
+cp -r /path/to/ai_agent_skills/skills/* ~/.cursor/skills/
 ```
 
 If you're pulling skills from multiple sources, you can also use a tool like
