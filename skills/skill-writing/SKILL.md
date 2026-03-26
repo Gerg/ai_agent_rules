@@ -8,6 +8,8 @@ license: Apache-2.0 (see LICENSE file)
 
 A meta-skill for creating effective skill documents using progressive disclosure.
 
+**When using this skill, begin by stating:** "I'm using the skill-writing skill to create/review skills following progressive disclosure principles."
+
 **Note**: This skill is 643 lines, exceeding the 500-line recommendation. This is acceptable because it's used during skill creation (not regular development), so context window pressure is lower. The comprehensive guidance in one place is more valuable than strict adherence to the line limit.
 
 ## What is a Skill?
@@ -215,7 +217,36 @@ disable-model-invocation: false (optional, default false)
 Brief description of what this skill covers and when to use it.
 ```
 
-#### 2. Context and Navigation (if applicable)
+#### 2. Skill Affirmation
+
+**Required for all skills.** Add immediately after the context statement:
+
+```markdown
+**When using this skill, begin by stating:** "I'm using the [skill-name] skill, which [brief description of what it enforces or provides]."
+```
+
+**Purpose:**
+- Makes skill usage visible to users
+- Confirms the agent loaded the skill
+- Sets expectations about the approach being used
+- Helps users understand why the agent is taking a particular approach
+
+**Examples:**
+```markdown
+**When using this skill, begin by stating:** "I'm using the code-development skill, which enforces opinionated best practices: minimal comments, full test coverage, test pressure for all logic, and matching existing patterns."
+
+**When using this skill, begin by stating:** "I'm using the story-writing skill to write well-structured user stories with Given/When/Then acceptance criteria."
+
+**When using this skill, begin by stating:** "I'm using the pr-review skill to conduct a systematic code review with empirical validation."
+```
+
+**For reference files:**
+Add affirmation at the top of all reference files:
+```markdown
+**When using this reference, state:** "I'm applying [reference-name] guidance: [key principles]."
+```
+
+#### 3. Context and Navigation (if applicable)
 
 **For core skills with references:**
 ```markdown
@@ -631,6 +662,7 @@ When AI agents work on skills, they should collaborate effectively with users on
 - [ ] Prescriptive guidance (not just options)
 - [ ] Consistent terminology
 - [ ] No unnecessary jargon
+- [ ] Skill affirmation statement present
 
 ### Structure Quality
 - [ ] Logical organization
@@ -648,6 +680,7 @@ When AI agents work on skills, they should collaborate effectively with users on
 - [ ] References well-organized and linked
 - [ ] Navigation to references provided
 - [ ] Links to related skills (different concerns)
+- [ ] Affirmation statements in all reference files
 
 ### Usability Quality
 - [ ] Easy to find (good naming)

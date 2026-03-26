@@ -2,6 +2,8 @@
 
 Common mistakes to avoid when creating skills.
 
+**When using this reference, state:** "I'm reviewing skill anti-patterns to avoid common mistakes."
+
 ## ❌ The Monolith
 Putting everything in one massive skill.
 

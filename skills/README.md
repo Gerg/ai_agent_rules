@@ -171,6 +171,24 @@ This keeps context usage efficient. For example, when writing a Jira story about
 2. User mentions Jira → Agent loads `references/jira-markup.md` (457 lines)
 3. User mentions CAPI → Agent loads `references/cloud-foundry-api.md` (529 lines)
 
+### Skill Affirmations
+
+**All skills and reference files include affirmation statements.** When an agent loads a skill or reference, it must proclaim this at the start of its response:
+
+**Example skill affirmations:**
+- "I'm using the code-development skill, which enforces opinionated best practices: minimal comments, full test coverage, test pressure for all logic, and matching existing patterns."
+- "I'm using the pr-review skill to conduct a systematic code review with empirical validation and issue tracking."
+
+**Example reference affirmations:**
+- "I'm applying code quality principles from code-quality.md: avoid comments, match existing naming, eliminate redundancy, ensure test pressure."
+- "I'm applying Cloud Foundry API story patterns: CAPI error format, endpoint-specific scenarios, and CF-specific acceptance criteria."
+
+**Purpose:**
+- Makes skill usage visible to users
+- Confirms the agent loaded the skill/reference
+- Sets expectations about the approach being used
+- Helps users understand why the agent is taking a particular approach
+
 Only the needed content is loaded, not all 1,307 lines.
 
 ### When to Use Which Skill

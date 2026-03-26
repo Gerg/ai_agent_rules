@@ -2,6 +2,8 @@
 
 Detailed patterns for structuring skill content effectively.
 
+**When using this reference, state:** "I'm applying skill content patterns: workflows, feedback loops, and template structures."
+
 ## Contents
 
 - [Workflows and Checklists](#workflows-and-checklists)

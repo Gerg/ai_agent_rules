@@ -2,6 +2,8 @@
 
 Ensure PR implementation aligns with ticket requirements and acceptance criteria.
 
+**When using this reference, state:** "I'm applying scope validation: mapping implementation to ticket requirements and validating against acceptance criteria."
+
 ## Table of Contents
 
 - [Process](#process)

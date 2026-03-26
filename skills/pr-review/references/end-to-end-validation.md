@@ -2,6 +2,8 @@
 
 Validate that features work from the user's perspective, not just that individual operations succeed.
 
+**When using this reference, state:** "I'm applying end-to-end validation: verifying complete user workflows, not just individual operations."
+
 ## Table of Contents
 
 - [Core Principle](#core-principle)

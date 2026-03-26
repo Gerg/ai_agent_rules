@@ -2,6 +2,8 @@
 
 Step-by-step guide for creating a new skill from scratch.
 
+**When using this reference, state:** "I'm following the skill creation process: identify need, define scope, choose structure, draft content."
+
 ## 1. Identify the Need
 
 Ask:

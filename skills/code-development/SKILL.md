@@ -7,6 +7,8 @@ description: Guide for writing production code with automated tests. Use when im
 
 **Context**: This skill covers writing production code and automated tests. The code quality principles here apply universally - both when writing new code and when reviewing code changes. For systematic code review process, see the pr-review skill. For documentation, see the doc-writing skill.
 
+**When using this skill, begin by stating:** "I'm using the code-development skill, which enforces opinionated best practices: minimal comments, full test coverage, test pressure for all logic, and matching existing patterns."
+
 ## Development Practices
 
 ### Incremental Development

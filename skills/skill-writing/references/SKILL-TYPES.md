@@ -2,6 +2,8 @@
 
 Reference guide for different types of skills and their characteristics.
 
+**When using this reference, state:** "I'm reviewing skill types: core skills, extensions, and references."
+
 ## Core Skills
 Provide comprehensive coverage of an activity with universal principles and references for variants.
 

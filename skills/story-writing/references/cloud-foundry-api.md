@@ -2,6 +2,8 @@
 
 Patterns and conventions for writing user stories about Cloud Foundry API (CAPI) endpoints.
 
+**When using this reference, state:** "I'm applying Cloud Foundry API story patterns: CAPI error format, endpoint-specific scenarios, and CF-specific acceptance criteria."
+
 ## Overview
 
 This skill provides comprehensive guidance for writing Cloud Foundry API (CAPI) stories, including:

@@ -2,6 +2,8 @@
 
 Identify and consolidate duplicate findings before finalizing review.
 
+**When using this reference, state:** "I'm applying deduplication guidance: consolidating duplicate findings by code location and root cause."
+
 ## Table of Contents
 
 - [Why Deduplication Matters](#why-deduplication-matters)

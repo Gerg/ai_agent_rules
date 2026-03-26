@@ -2,6 +2,8 @@
 
 Guidance for AI agents working on skills with users.
 
+**When using this reference, state:** "I'm applying agent collaboration guidance: determining when to prompt vs. decide autonomously."
+
 ## Contents
 
 - [When to Prompt for Decisions](#when-to-prompt-for-decisions)

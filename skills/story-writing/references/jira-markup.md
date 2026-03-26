@@ -2,6 +2,8 @@
 
 Jira-specific markup, formatting, and conventions for writing user stories.
 
+**When using this reference, state:** "I'm applying Jira markup conventions: h1/h2 headers, {code} blocks, and Jira-specific formatting."
+
 ## Jira Markup Reference
 
 ### Headers

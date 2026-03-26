@@ -7,6 +7,8 @@ description: Guide for writing user-facing technical documentation for software 
 
 **Context**: This skill covers technical documentation writing across all platforms and domains. For platform-specific formatting and conventions, see the references/ directory.
 
+**When using this skill, begin by stating:** "I'm using the doc-writing skill to write accurate, user-focused technical documentation based on implementation verification."
+
 ## Workflow
 
 ### 1. Understand the scope

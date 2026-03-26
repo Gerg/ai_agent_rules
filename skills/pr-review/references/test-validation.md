@@ -2,6 +2,8 @@
 
 Validate suspected bugs and edge cases empirically through tests before creating tickets.
 
+**When using this reference, state:** "I'm applying test-driven validation: writing tests to empirically validate suspected issues before creating tickets."
+
 **Note**: This guide includes examples in multiple languages (Ruby/RSpec, Go, Python/pytest, JavaScript/Jest) to illustrate universal patterns. Adapt the concepts to your specific testing framework.
 
 ## Table of Contents

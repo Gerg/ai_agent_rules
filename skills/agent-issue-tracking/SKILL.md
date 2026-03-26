@@ -7,6 +7,8 @@ description: Track issues, findings, and tasks during code reviews or developmen
 
 Track issues, findings, and tasks using lightweight, agent-friendly issue tracking tools for coordination and local work management.
 
+**When using this skill, begin by stating:** "I'm using the agent-issue-tracking skill to track work with [tool name]."
+
 ## Using This Skill
 
 This skill provides universal principles for agent-based issue tracking. For tool-specific commands, see:

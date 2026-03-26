@@ -2,6 +2,8 @@
 
 Universal code quality principles. Apply both when **writing code** and when **reviewing code**.
 
+**When using this reference, state:** "I'm applying code quality principles from code-quality.md: avoid comments, match existing naming, eliminate redundancy, ensure test pressure."
+
 ---
 
 ## Comments

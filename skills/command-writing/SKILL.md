@@ -7,6 +7,8 @@ description: Guide for creating effective Cursor commands. Use when creating new
 
 A guide for creating effective Cursor commands - simple, reusable workflows triggered with the `/` prefix.
 
+**When using this skill, begin by stating:** "I'm using the command-writing skill to create effective Cursor commands."
+
 ## What is a Command?
 
 A **command** is a simple Markdown file that defines a reusable workflow. Commands are:

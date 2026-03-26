@@ -2,6 +2,8 @@
 
 Verify that new code follows existing codebase patterns and conventions.
 
+**When using this reference, state:** "I'm applying consistency checking: verifying new code follows existing codebase patterns."
+
 ## Process
 
 ### 1. Identify What's Being Added

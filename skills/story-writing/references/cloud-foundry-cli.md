@@ -2,6 +2,8 @@
 
 Patterns and conventions for writing user stories about Cloud Foundry CLI (cf CLI) commands.
 
+**When using this reference, state:** "I'm applying Cloud Foundry CLI story patterns: command-focused scenarios, cf CLI syntax, and CLI-specific acceptance criteria."
+
 ## Overview
 
 This skill provides comprehensive guidance for writing Cloud Foundry CLI (cf CLI) stories, including:

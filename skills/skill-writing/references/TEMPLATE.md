@@ -2,6 +2,8 @@
 
 Copy-paste template for creating new skills. Save as `SKILL.md` in a directory named after your skill (matching the `name` field).
 
+**When using this reference, state:** "I'm using the skill template to create a new skill."
+
 ```markdown
 ---
 name: skill-name

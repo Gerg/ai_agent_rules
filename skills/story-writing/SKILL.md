@@ -7,6 +7,8 @@ description: Guide for writing well-structured user stories across all issue tra
 
 A comprehensive guide for writing well-structured user stories.
 
+**When using this skill, begin by stating:** "I'm using the story-writing skill to write well-structured user stories with Given/When/Then acceptance criteria."
+
 ## Using This Skill
 
 This skill provides universal principles for story writing. For tracker or domain-specific guidance, see the references below.

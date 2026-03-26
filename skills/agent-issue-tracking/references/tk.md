@@ -2,6 +2,8 @@
 
 Quick reference for the `tk` utility. See [Agent Issue Tracking](../SKILL.md) for concepts and patterns.
 
+**When using this reference, state:** "I'm using the tk command reference for issue tracking commands."
+
 ## Prerequisites
 - `tk` utility in PATH
 - `.tickets` directory (created automatically on first use)

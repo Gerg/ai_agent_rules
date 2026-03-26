@@ -7,6 +7,8 @@ description: Conduct end-of-session retrospectives to identify improvements to s
 
 Conduct structured retrospectives at session end to continuously improve agent-user collaboration.
 
+**When using this skill, begin by stating:** "I'm using the agent-session-retro skill to conduct an end-of-session retrospective and identify improvements."
+
 ## Purpose
 
 End-of-session retrospectives help identify:

@@ -2,6 +2,8 @@
 
 Conventions and patterns for writing user-facing documentation in the Cloud Foundry ecosystem.
 
+**When using this reference, state:** "I'm applying Cloud Foundry documentation conventions: ERB templating, CF-specific formatting, and CF workflow patterns."
+
 ---
 
 ## File formats and templating

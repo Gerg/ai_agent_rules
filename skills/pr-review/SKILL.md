@@ -7,6 +7,8 @@ description: Systematic code review process for pull requests. Use when conducti
 
 Conduct thorough, systematic code reviews using test-driven validation and issue tracking.
 
+**When using this skill, begin by stating:** "I'm using the pr-review skill to conduct a systematic code review with empirical validation and issue tracking."
+
 ## Using This Skill
 
 This skill provides the core PR review process. Load references when you need detailed guidance:
