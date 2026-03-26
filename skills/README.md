@@ -1,6 +1,6 @@
 # AI Agent Skills
 
-A collection of skills for AI agents using progressive disclosure, covering story writing, code review, documentation writing, issue tracking, and skill development.
+A collection of skills for AI agents using progressive disclosure, covering code development, story writing, code review, documentation writing, issue tracking, and skill development.
 
 > **Note:** These skills were created with AI assistance and are provided as starting points. Review and adapt them to your specific context, team conventions, and project requirements. Examples use generic patterns and may need customization for your codebase.
 
@@ -141,6 +141,21 @@ Write user-facing technical documentation for software features.
 
 ---
 
+### [Code Development](code-development/SKILL.md)
+Write production code with automated tests following opinionated best practices.
+
+**Core content:**
+- Development practices (incremental, minimal, complete)
+- Automated testing (full coverage, test pressure, deterministic)
+- Code style (minimal comments, self-documenting code, match existing patterns)
+- Architectural alignment
+
+**Note**: This skill is opinionated and prescriptive. It enforces strong principles like avoiding comments, ensuring test pressure, and flagging bad patterns regardless of existing code quality.
+
+**Use when**: Implementing features, fixing bugs, refactoring code, or writing any production software
+
+---
+
 ## How Skills Work
 
 ### Progressive Disclosure
@@ -193,6 +208,12 @@ Only the needed content is loaded, not all 1,307 lines.
 - Agent will research implementation, plan structure, and write accurate docs
 - Agent loads platform-specific references as needed (e.g., Cloud Foundry)
 
+**Writing code:**
+- Enable `code-development/`
+- Agent will follow opinionated best practices: minimal comments, full test coverage, test pressure for all logic
+- Produces high-quality code that may differ stylistically from generic agents
+- Applies to feature implementation, bug fixes, and refactoring
+
 ---
 
 ## Quick Start
@@ -239,6 +260,13 @@ Only the needed content is loaded, not all 1,307 lines.
    - `doc-writing/SKILL.md` (universal principles)
    - `references/cloud-foundry.md` (CF conventions)
 
+### Writing Production Code
+
+1. Enable `code-development/` skill
+2. Ask agent to implement a feature or fix a bug
+3. Agent loads:
+   - `code-development/SKILL.md` (development practices, testing, style)
+
 ---
 
 ## Adding New Skills
@@ -254,6 +282,23 @@ my-skill/
     ├── domain-b.md    # Domain-specific content
     └── framework-c.md # Framework-specific content
 ```
+
+### Shared Resources
+
+Some resources apply to multiple skills (e.g., code quality principles apply when both writing and reviewing code). These live in `_shared/` and are symlinked into each skill's `references/` directory:
+
+```
+_shared/
+└── code-quality.md    # Universal code quality principles
+
+code-development/references/
+└── code-quality.md -> ../../_shared/code-quality.md
+
+pr-review/references/
+└── code-quality.md -> ../../_shared/code-quality.md
+```
+
+See [_shared/README.md](_shared/README.md) for details on shared resources.
 
 ### Examples of New Skills
 

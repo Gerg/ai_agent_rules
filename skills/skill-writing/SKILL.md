@@ -120,16 +120,24 @@ Use this extension when validating PR scope against detailed acceptance criteria
 ```
 
 ### 6. Avoid Duplication
-Use references for domain-specific content instead of creating separate skills or repeating content.
+Use references for domain-specific content and shared resources for multi-skill content.
 
-✅ Good:
+**For domain-specific variants within a skill:**
 ```markdown
 ## Domain-Specific Patterns
 
 For domain-specific story patterns:
 - **Cloud Foundry API**: See [references/cloud-foundry-api.md](references/cloud-foundry-api.md)
 - **Kubernetes**: See [references/kubernetes.md](references/kubernetes.md)
-- **AWS**: See [references/aws.md](references/aws.md)
+```
+
+**For universal content used by multiple skills:**
+Use shared resources with symlinks (see Skill Organization → Shared Resources):
+```
+_shared/code-quality.md  ← Single source of truth
+    ↓ symlink
+code-development/references/code-quality.md
+pr-review/references/code-quality.md
 ```
 
 ❌ Bad:
@@ -137,8 +145,8 @@ For domain-specific story patterns:
 ## Cloud Foundry API Patterns
 [Repeating all CAPI patterns in main SKILL.md]
 
-## Kubernetes Patterns
-[Repeating all K8s patterns in main SKILL.md]
+## Code Quality (duplicated in multiple skills)
+[Same content copied to code-development and pr-review]
 ```
 
 ### 7. Generic Over Specific
@@ -521,6 +529,45 @@ my-skill/
 - Main skill file must be named `SKILL.md`
 - `name` field in frontmatter must match the directory name
 - Optional directories: `scripts/`, `references/`, `assets/`
+
+### Shared Resources
+
+When content applies to multiple skills (e.g., code quality principles apply when both writing and reviewing code), use shared resources with symlinks:
+
+```
+skills/
+├── _shared/                          # Shared resources
+│   ├── README.md                     # Documents shared resources
+│   └── code-quality.md               # Universal principles
+├── code-development/
+│   └── references/
+│       └── code-quality.md -> ../../_shared/code-quality.md  # Symlink
+└── pr-review/
+    └── references/
+        └── code-quality.md -> ../../_shared/code-quality.md  # Symlink
+```
+
+**Benefits:**
+- Single source of truth - content exists in one place
+- Natural references - each skill references `references/filename.md` as if local
+- Guaranteed consistency - impossible for content to diverge
+- Clear shared status - files in `_shared/` are explicitly multi-skill
+
+**When to use shared resources:**
+- Universal principles that apply across multiple activities (e.g., code quality for writing and reviewing)
+- Common reference material used by multiple skills
+- Standards or conventions that must be consistent
+
+**When NOT to use shared resources:**
+- Content specific to one skill (keep it in that skill's references/)
+- Content that might evolve differently for different skills
+- Small duplications that don't justify the complexity
+
+**Creating shared resources:**
+1. Create file in `_shared/` directory
+2. Create symlinks in each skill's `references/` directory
+3. Document in `_shared/README.md`
+4. Reference naturally in each skill: `[references/filename.md](references/filename.md)`
 
 ### Naming Conventions
 
