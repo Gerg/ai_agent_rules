@@ -37,7 +37,35 @@ A **skill** is a reusable knowledge document that provides structured guidance o
 
 **Target: Keep SKILL.md under 500 lines.** When approaching this limit, split content into reference files.
 
-### 2. Set Appropriate Degrees of Freedom
+### 2. Sharp and Opinionated Over Generic
+
+**Skills must change agent behavior.** If an agent would do the same thing without the skill, the skill has no value.
+
+**Two questions to ask:**
+1. **Effectiveness**: "Would an agent behave differently with this skill?" (If no → skill is too generic)
+2. **Efficiency**: "Does the agent already understand this concept?" (If yes → explanation is redundant)
+
+**Examples of sharp, opinionated guidance:**
+- ✅ "Avoid code comments unless absolutely necessary; Code & tests should be self-documenting"
+- ✅ "When starting a session, always affirm that you are conforming to the instructions"
+- ✅ "All logic must be driven by test requirements (test pressure)"
+
+**Examples of generic, useless guidance:**
+- ❌ "Write clear code" (too vague, agents already do this by default)
+- ❌ "Consider adding comments when appropriate" (softened, no clear directive)
+- ❌ "Follow best practices" (meaningless without specifics)
+
+**Sharpness checklist:**
+- Use imperatives, not suggestions ("Do X" not "Consider X" or "You might want to X")
+- Be specific about what to do and what not to do
+- Include concrete examples and anti-patterns
+- Don't soften language during editing ("avoid X" stays "avoid X", not "consider avoiding X")
+- When extracting from existing guidance (AGENTS.md, team docs), preserve the original wording
+- User feedback on skills comes from hard-won experience - don't dull the edge when incorporating it
+
+**The goal:** Skills should result in code or behavior that is stylistically divergent from what agents would produce by default.
+
+### 3. Set Appropriate Degrees of Freedom
 
 Match the level of specificity to the task's fragility and variability:
 
@@ -49,7 +77,7 @@ Match the level of specificity to the task's fragility and variability:
 
 Think of the agent as exploring a path: a narrow bridge with cliffs needs specific guardrails (low freedom), while an open field allows many routes (high freedom).
 
-### 3. Single Responsibility
+### 4. Single Responsibility
 Each skill should focus on one concern or outcome. Use progressive disclosure (references/) for variants.
 
 ✅ Good:
@@ -61,7 +89,7 @@ Each skill should focus on one concern or outcome. Use progressive disclosure (r
 - `development/` - Too broad, covers everything
 - `jira-api-story-writing-cloud-foundry-cli/` - Multiple concerns in one skill
 
-### 4. When to Create Separate Skills vs Use References
+### 5. When to Create Separate Skills vs Use References
 
 **When to create separate skills:**
 
@@ -105,7 +133,7 @@ Enhanced PR review with security audit
 - Consistency checking → `pr-review/references/consistency-patterns.md`
 - Language-specific patterns → `pr-review/references/ruby.md`
 
-### 5. Clear Prerequisites and Context
+### 6. Clear Prerequisites and Context
 State what other skills are required and guide users to relevant references.
 
 **For core skills:**
@@ -121,7 +149,7 @@ For domain-specific patterns, see the appropriate reference file.
 Use this extension when validating PR scope against detailed acceptance criteria.
 ```
 
-### 6. Avoid Duplication
+### 7. Avoid Duplication
 Use references for domain-specific content and shared resources for multi-skill content.
 
 **For domain-specific variants within a skill:**
@@ -151,7 +179,7 @@ pr-review/references/code-quality.md
 [Same content copied to code-development and pr-review]
 ```
 
-### 7. Generic Over Specific
+### 8. Generic Over Specific
 Keep skills applicable across contexts. Extract project-specific details.
 
 ✅ Good:
@@ -164,7 +192,7 @@ Use consistent placeholder data throughout examples.
 Use potato-themed examples (e.g., "spud-managers", "potato-user").
 ```
 
-### 8. Show, Don't Just Tell
+### 9. Show, Don't Just Tell
 Provide concrete examples, not just abstract principles.
 
 ✅ Good:
@@ -660,6 +688,7 @@ When AI agents work on skills, they should collaborate effectively with users on
 - [ ] Concrete examples provided
 - [ ] Anti-patterns documented
 - [ ] Prescriptive guidance (not just options)
+- [ ] Sharp and opinionated (would agent behave differently with this skill?)
 - [ ] Consistent terminology
 - [ ] No unnecessary jargon
 - [ ] Skill affirmation statement present
