@@ -379,6 +379,7 @@ A skill should only contain essential information for agents to do the job. **Do
 - User-facing documentation
 - Setup and testing procedures
 - Process documentation about creating the skill
+- Prior art or provenance (this belongs in the repository's README.md)
 
 ✅ **Include only:**
 - SKILL.md (the skill itself)
